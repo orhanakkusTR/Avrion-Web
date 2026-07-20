@@ -57,10 +57,10 @@ export default function VillkorPage() {
                 <li>
                   <strong>Telefon:</strong>{" "}
                   <a
-                    href="tel:+46311234567"
+                    href="tel:+46738339966"
                     className="text-brand hover:underline"
                   >
-                    031-123 45 67
+                    073-833 99 66
                   </a>
                 </li>
               </ul>
@@ -172,10 +172,10 @@ export default function VillkorPage() {
                 <li>
                   Telefon:{" "}
                   <a
-                    href="tel:+46311234567"
+                    href="tel:+46738339966"
                     className="text-brand hover:underline"
                   >
-                    031-123 45 67
+                    073-833 99 66
                   </a>
                 </li>
               </ul>

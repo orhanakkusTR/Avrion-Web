@@ -59,10 +59,10 @@ export default function IntegritetspolicyPage() {
                 <br />
                 Telefon:{" "}
                 <a
-                  href="tel:+46311234567"
+                  href="tel:+46738339966"
                   className="text-brand underline hover:no-underline"
                 >
-                  031-123 45 67
+                  073-833 99 66
                 </a>
               </address>
             </div>

@@ -123,7 +123,7 @@ Vi besiktar skador och dokumenterar omfattningen inför försäkringsärenden el
 
 ### Kontaktinformation
 - **Adress:** Avrion Service AB, Industrigatan 12, 431 53 Mölndal
-- **Telefon:** 031 – 23 45 67  *(NOTE: home/footer show 031-123 45 67 — confirm)*
+- **Telefon:** 073-833 99 66
 - **E-post:** info@avrionservice.se
 - **Öppettider:** Måndag – Fredag 07:00 – 17:00 · Lördag – Söndag Stängt
 - Map: Avrion Service AB, Industrigatan 12, 431 53 Mölndal
@@ -155,7 +155,7 @@ Vi besiktar skador och dokumenterar omfattningen inför försäkringsärenden el
 - Tagline: Professionella tjänster inom lackering, plåt och polering. Kvalitet, noggrannhet och service du kan lita på.
 - **Tjänster:** Lackering · Plåt · Polering · Skadebesiktning
 - **Om oss:** Om oss · Vår verkstad · Kvalitet & Miljö · Karriär
-- **Kontakt:** Avrion Service AB · Industrigatan 12 · 431 53 Mölndal · 031-123 45 67 · info@avrionservice.se
+- **Kontakt:** Avrion Service AB · Industrigatan 12 · 431 53 Mölndal · 073-833 99 66 · info@avrionservice.se
 - **Öppettider:** Måndag – Fredag 07:00 – 17:00 · Lördag – Söndag Stängt
 - Button: `Boka tid`
 - Legal: © 2024 Avrion Service AB. Alla rättigheter förbehållna. · Integritetspolicy · Villkor

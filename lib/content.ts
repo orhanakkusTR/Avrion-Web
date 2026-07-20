@@ -11,8 +11,8 @@ export const NAV_LINKS = [
 
 export const CONTACT_INFO = {
   address: "Industrigatan 12, 431 53 Mölndal",
-  phone: "031 – 23 45 67",
-  phoneFooter: "031-123 45 67",
+  phone: "073-833 99 66",
+  phoneFooter: "073-833 99 66",
   email: "info@avrionservice.se",
   hours: "Måndag – Fredag 07:00 – 17:00",
   hoursSaturday: "Lördag – Söndag Stängt",
@@ -255,9 +255,18 @@ export const CONTACT_PAGE = {
   privacyNote: "Vi behandlar dina uppgifter enligt vår integritetspolicy.",
   faqTitle: "Vanliga frågor",
   faq: [
-    { q: "Hur bokar jag en tid?", a: null },
-    { q: "Erbjuder ni lånebil?", a: null },
-    { q: "Vad ingår i en lackering?", a: null },
+    {
+      q: "Hur bokar jag en tid?",
+      a: "Det enklaste sättet är att fylla i vårt bokningsformulär här på webbplatsen – vi återkommer snarast för att bekräfta din tid. Du är också alltid välkommen att ringa oss under våra öppettider, måndag till fredag 07:00–17:00.",
+    },
+    {
+      q: "Erbjuder ni lånebil?",
+      a: "Kontakta oss gärna så berättar vi om vilka möjligheter som finns under tiden din bil är hos oss. Vi hjälper dig att hitta en lösning som passar just din situation.",
+    },
+    {
+      q: "Vad ingår i en lackering?",
+      a: "I en lackering ingår demontering och montering, förarbete och slipning, grundmålning och topplack samt kulöranpassning och lackfinish. Vi avslutar alltid med kvalitetskontroll och slutbesiktning så att resultatet håller högsta kvalitet.",
+    },
   ],
 } as const;
 

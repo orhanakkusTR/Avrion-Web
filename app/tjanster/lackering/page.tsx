@@ -31,7 +31,7 @@ const jsonLd = {
       "@id": "https://avrionservice.se/#business",
       name: "Avrion Service AB",
       url: "https://avrionservice.se",
-      telephone: "+46311234567",
+      telephone: "+46738339966",
       email: "info@avrionservice.se",
       address: {
         "@type": "PostalAddress",
@@ -311,11 +311,11 @@ export default function LackeringPage() {
                 Boka tid
               </Button>
               <a
-                href="tel:+46311234567"
+                href="tel:+46738339966"
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 text-sm font-medium px-5 py-3 rounded-lg transition-colors"
               >
                 <Phone size={16} aria-hidden="true" />
-                031-123 45 67
+                073-833 99 66
               </a>
             </div>
           </div>

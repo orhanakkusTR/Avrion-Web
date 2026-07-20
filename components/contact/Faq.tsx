@@ -50,10 +50,7 @@ export function Faq() {
                 className="px-5 pb-4 text-sm text-slate-600 leading-relaxed"
               >
                 {item.a ?? (
-                  <span className="italic text-slate-400">
-                    {/* TODO: client copy */}
-                    Svar kommer snart.
-                  </span>
+                  <span className="italic text-slate-400">Svar kommer snart.</span>
                 )}
               </div>
             </div>
