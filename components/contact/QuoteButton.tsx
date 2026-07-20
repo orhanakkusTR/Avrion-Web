@@ -7,7 +7,7 @@ import { QuoteModal } from "./QuoteModal";
 
 interface QuoteButtonProps {
   label: string;
-  variant?: "primary" | "secondary" | "secondary-dark";
+  variant?: "primary" | "secondary" | "secondary-dark" | "ghost";
   className?: string;
 }
 
@@ -27,7 +27,7 @@ export function QuoteButton({ label, variant = "secondary-dark", className }: Qu
         aria-haspopup="dialog"
         aria-expanded={open}
       >
-        <FileText size={18} aria-hidden="true" />
+        <FileText size={variant === "ghost" ? 15 : 18} aria-hidden="true" />
         {label}
       </Button>
 

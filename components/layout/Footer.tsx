@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, Calendar } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { QuoteButton } from "@/components/contact/QuoteButton";
 import {
   BRAND_NAME,
   CONTACT_INFO,
@@ -11,7 +12,7 @@ import {
 
 export function Footer() {
   return (
-    <footer className="bg-navy-950 text-white/80 border-t-[6px] border-white/80">
+    <footer className="bg-navy-950 text-white/80 border-t-[6px] border-brand">
       <Container>
         {/* Main columns */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-b border-white/10">
@@ -25,13 +26,20 @@ export function Footer() {
               className="h-11 w-auto mb-4 brightness-0 invert"
             />
             <p className="text-sm leading-relaxed mb-4">{FOOTER.tagline}</p>
-            <Link
-              href="/boka"
-              className="inline-flex items-center gap-2 bg-brand hover:bg-brand-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
-            >
-              <Calendar size={15} aria-hidden="true" />
-              Boka tid
-            </Link>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                href="/boka"
+                className="inline-flex items-center gap-2 bg-brand hover:bg-brand-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+              >
+                <Calendar size={15} aria-hidden="true" />
+                Boka tid
+              </Link>
+              <QuoteButton
+                label="Få offert"
+                variant="secondary-dark"
+                className="px-4 py-2 text-sm font-medium"
+              />
+            </div>
           </div>
 
           {/* Tjänster */}
@@ -43,7 +51,7 @@ export function Footer() {
               {SERVICES.map((s) => (
                 <li key={s.id}>
                   <Link
-                    href={`/tjanster#${s.id}`}
+                    href={`/tjanster/${s.id}`}
                     className="hover:text-white transition-colors"
                   >
                     {s.title}
@@ -60,12 +68,12 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-sm">
               {FOOTER.company.map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <Link
-                    href="/om-oss"
+                    href={item.href}
                     className="hover:text-white transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}

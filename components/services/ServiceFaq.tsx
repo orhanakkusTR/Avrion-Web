@@ -2,24 +2,32 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { CONTACT_PAGE } from "@/lib/content";
 
-export function Faq() {
+interface ServiceFaqProps {
+  title: string;
+  items: ReadonlyArray<{ q: string; a: string }>;
+}
+
+/**
+ * Accordion FAQ for service sub-pages — same visual language as the
+ * contact-page Faq (rounded bordered rows, tinted answer zone).
+ */
+export function ServiceFaq({ title, items }: ServiceFaqProps) {
   const [open, setOpen] = useState<number | null>(null);
 
   const toggle = (i: number) => setOpen(open === i ? null : i);
 
   return (
     <div>
-      <h2 className="font-heading font-bold text-2xl text-slate-900 mb-6">
-        {CONTACT_PAGE.faqTitle}
+      <h2 className="font-heading font-bold text-3xl text-slate-900 text-center mb-10">
+        {title}
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 items-start">
-        {CONTACT_PAGE.faq.map((item, i) => {
+        {items.map((item, i) => {
           const isOpen = open === i;
-          const panelId = `faq-panel-${i}`;
-          const btnId = `faq-btn-${i}`;
+          const panelId = `sfaq-panel-${i}`;
+          const btnId = `sfaq-btn-${i}`;
 
           return (
             <div
@@ -49,9 +57,7 @@ export function Faq() {
                 hidden={!isOpen}
                 className="px-5 py-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/60"
               >
-                {item.a ?? (
-                  <span className="italic text-slate-400">Svar kommer snart.</span>
-                )}
+                {item.a}
               </div>
             </div>
           );

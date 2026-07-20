@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/content";
 
-export function MobileNav() {
+export function MobileNav({ scrolled = false }: { scrolled?: boolean }) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -82,7 +82,11 @@ export function MobileNav() {
         onClick={() => setOpen(true)}
         aria-label="Öppna meny"
         aria-expanded={open}
-        className="lg:hidden p-2 rounded-md text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white"
+        className={`lg:hidden p-2 rounded-md focus-visible:ring-2 ${
+          scrolled
+            ? "text-slate-900 hover:bg-slate-100 focus-visible:ring-brand"
+            : "text-white hover:bg-white/10 focus-visible:ring-white"
+        }`}
       >
         <Menu size={24} aria-hidden="true" />
       </button>

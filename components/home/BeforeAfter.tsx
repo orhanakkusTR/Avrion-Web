@@ -2,9 +2,12 @@
 
 import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
+import { Phone, CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { HOME_BEFORE_AFTER } from "@/lib/content";
+import { Button } from "@/components/ui/Button";
+import { QuoteButton } from "@/components/contact/QuoteButton";
+import { HOME_BEFORE_AFTER, CONTACT_INFO } from "@/lib/content";
 
 export function BeforeAfter() {
   const [pos, setPos] = useState(50);
@@ -44,7 +47,7 @@ export function BeforeAfter() {
           <div>
             <div
               ref={sliderRef}
-              className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden cursor-col-resize select-none bg-navy-950"
+              className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-col-resize select-none bg-navy-950 border border-white/10 shadow-2xl shadow-navy-950/60"
               onMouseDown={onMouseDown}
               onTouchMove={onTouchMove}
               onTouchStart={(e) => updatePos(e.touches[0].clientX)}
@@ -89,24 +92,31 @@ export function BeforeAfter() {
                 </div>
               </div>
 
-              {/* Tags */}
-              <span className="absolute top-3 left-3 bg-black/70 text-white/80 text-xs font-bold px-2 py-1 rounded">
+              {/* Tags — fade out when the divider reaches their side */}
+              <span
+                className={`absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white/90 text-xs font-bold tracking-widest px-3 py-1.5 rounded-full transition-opacity duration-200 ${
+                  pos < 18 ? "opacity-0" : "opacity-100"
+                }`}
+              >
                 {HOME_BEFORE_AFTER.tagBefore}
               </span>
-              <span className="absolute top-3 right-3 bg-navy-950/90 text-white text-xs font-bold px-2 py-1 rounded">
+              <span
+                className={`absolute top-4 right-4 bg-brand/90 backdrop-blur-sm text-white text-xs font-bold tracking-widest px-3 py-1.5 rounded-full transition-opacity duration-200 ${
+                  pos > 82 ? "opacity-0" : "opacity-100"
+                }`}
+              >
                 {HOME_BEFORE_AFTER.tagAfter}
               </span>
 
-              {/* Divider handle */}
+              {/* Divider + arrow handle */}
               <div
-                className="absolute top-0 bottom-0 w-0.5 bg-brand shadow-lg shadow-brand/50"
+                className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-lg shadow-navy-950/50"
                 style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
                 aria-hidden="true"
               >
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-brand rounded-full shadow-md shadow-brand/40 flex items-center justify-center">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M5 8H11M5 8L3 6M5 8L3 10M11 8L13 6M11 8L13 10" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 bg-brand rounded-full border-2 border-white/90 shadow-lg shadow-navy-950/50 transition-transform duration-200 hover:scale-110">
+                  <ChevronLeft size={18} className="text-white -mr-1" strokeWidth={2.5} />
+                  <ChevronRight size={18} className="text-white -ml-1" strokeWidth={2.5} />
                 </div>
               </div>
             </div>
@@ -135,6 +145,31 @@ export function BeforeAfter() {
                   </p>
                 </div>
               ))}
+            </div>
+
+            {/* CTAs — aligned with the stats grid above */}
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <Button
+                href="/boka"
+                variant="primary"
+                className="w-full py-3.5 text-base font-semibold"
+              >
+                <CalendarDays size={18} aria-hidden="true" />
+                {HOME_BEFORE_AFTER.ctaBook}
+              </Button>
+              <Button
+                href={`tel:${CONTACT_INFO.phone.replace(/\s|–|-/g, "")}`}
+                variant="secondary-dark"
+                className="w-full py-3.5 text-base font-semibold border-white/20 bg-navy-950/40 hover:border-brand/40 hover:bg-navy-950"
+              >
+                <Phone size={18} aria-hidden="true" />
+                {HOME_BEFORE_AFTER.ctaCall}
+              </Button>
+              <QuoteButton
+                label={HOME_BEFORE_AFTER.ctaOffert}
+                variant="secondary-dark"
+                className="w-full py-3.5 text-base font-semibold border-white/20 bg-navy-950/40 hover:border-brand/40 hover:bg-navy-950"
+              />
             </div>
           </div>
         </div>

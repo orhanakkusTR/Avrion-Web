@@ -23,8 +23,9 @@ export function Hero() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        {/* Dark overlay — matches Autentic template rgba(10,5,5,0.85) */}
-        <div className="absolute inset-0 bg-black/75" />
+        {/* Dark overlay — heavy on the left for text readability, lighter on
+            the right so the car stays visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/15" />
         {/* Red accent gradient from bottom-left */}
         <div className="absolute inset-0 bg-gradient-to-tr from-brand-dark/30 via-transparent to-transparent" />
       </div>
@@ -50,14 +51,14 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12 animate-fade-up delay-200">
-            <Button href="/boka" variant="primary" className="text-base px-7 py-4">
+            <Button href="/boka" variant="primary" className="text-base px-12 py-4">
               <Calendar size={18} aria-hidden="true" />
               {HOME_HERO.ctaPrimary}
             </Button>
             <QuoteButton
               label={HOME_HERO.ctaSecondary}
               variant="secondary-dark"
-              className="text-base px-7 py-4"
+              className="text-base px-12 py-4"
             />
           </div>
 

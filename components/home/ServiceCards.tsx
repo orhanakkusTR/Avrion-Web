@@ -15,7 +15,7 @@ const cardImages = [
 
 export function ServiceCards() {
   return (
-    <Section className="bg-navy-950">
+    <Section className="bg-navy-950 pt-6 md:pt-10">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {HOME_SERVICE_CARDS.map((card, i) => {
@@ -24,7 +24,7 @@ export function ServiceCards() {
             return (
               <article
                 key={card.title}
-                className="rounded-3xl bg-navy-900 border border-white/10 shadow-lg hover:shadow-brand/10 hover:shadow-xl transition-all duration-300 overflow-hidden flex min-h-[260px] hover:-translate-y-1 hover:border-brand/30 group"
+                className="rounded-3xl bg-navy-900 border border-white/10 shadow-lg hover:shadow-brand/10 hover:shadow-xl transition-[border-color,box-shadow] duration-300 overflow-hidden flex min-h-[260px] hover:border-brand/30 group"
               >
                 {/* Left: content */}
                 <div className="flex flex-col p-5 w-[60%] flex-shrink-0">
@@ -53,7 +53,7 @@ export function ServiceCards() {
 
                 {/* Right: image — dark fade from card bg into image */}
                 {img && (
-                  <div className="relative flex-1">
+                  <div className="relative flex-1 -ml-px overflow-hidden">
                     <Image
                       src={img}
                       alt={`${card.title} — Avrion Service`}

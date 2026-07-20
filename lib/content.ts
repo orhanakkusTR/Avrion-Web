@@ -60,12 +60,15 @@ export const HOME_BEFORE_AFTER = {
   tagBefore: "FÖRE",
   tagAfter: "EFTER",
   h2: "Resultat du kan lita på",
-  text: "Vi kombinerar erfarenhet, kvalitet och passion för bilar. Se skillnaden vi gör – varje dag.",
+  text: "Hos oss möts erfarenhet, kvalitet och en äkta passion för bilar. Varje lackering, plåtreparation och polering utförs med samma noggrannhet och omsorg – som om det vore vår egen bil. Vi kompromissar aldrig med detaljerna, och det syns i slutresultatet. Dra i reglaget och se skillnaden med egna ögon – före och efter, sida vid sida.",
   stats: [
     { value: "10+", label: "Års erfarenhet" },
     { value: "2 000+", label: "Nöjda kunder" },
     { value: "98%", label: "Rekommenderar oss" },
   ],
+  ctaCall: "Ring oss",
+  ctaBook: "Boka tid",
+  ctaOffert: "Få offert",
 } as const;
 
 export const HOME_PROCESS = {
@@ -180,6 +183,21 @@ export const SERVICES_CTA = {
   text: "Boka tid eller begär offert – vi återkommer snabbt med förslag och pris.",
   ctaPrimary: "Boka tid",
   ctaSecondary: "Få offert",
+  ctaCall: "Ring oss",
+} as const;
+
+export const SERVICES_CALLBACK = {
+  title: "Vi ringer upp dig",
+  text: "Lämna ditt namn och telefonnummer så hör vi av oss inom kort.",
+  fields: {
+    firstName: { label: "Förnamn", placeholder: "Anna" },
+    lastName: { label: "Efternamn", placeholder: "Andersson" },
+    phone: { label: "Telefon", placeholder: "070 123 45 67" },
+  },
+  submitLabel: "Ring mig upp",
+  service: "Återuppringning",
+  success: "Tack! Vi ringer dig så snart vi kan.",
+  error: "Något gick fel. Försök igen eller ring oss direkt.",
 } as const;
 
 // ── Om oss /om-oss ────────────────────────────────────────────────────────────
@@ -191,11 +209,17 @@ export const OM_OSS_PAGE = {
 
 export const OM_OSS_STORY = {
   h2: "Vår berättelse",
+  // **…** marks bold emphasis, rendered via richText() on the page.
   paragraphs: [
-    "Avrion Service AB grundades med en enkel vision: att erbjuda bilägare i Göteborgsregionen ett verkstadsalternativ som kombinerar hantverksskicklighet med modern teknik och äkta kundservice.",
-    "Sedan starten har vi vuxit till ett av Mölndals mest anlitade karosseriverkstäder. Vi arbetar dagligen med lackering, plåt, polering och skadebesiktning – alltid med ett krav på att resultatet ska vara lika bra som om det vore vår egna bil.",
-    "Vi är stolta över varje bil som lämnar vår verkstad. Det är inte bara ett jobb – det är ett hantverk vi tar på allvar.",
+    "Avrion Service AB grundades med en enkel vision: att erbjuda bilägare i **Göteborgsregionen** ett verkstadsalternativ som kombinerar **hantverksskicklighet** med modern teknik och äkta kundservice.",
+    "Sedan starten har vi vuxit till en av **Mölndals** mest anlitade karosseriverkstäder. Vi arbetar dagligen med lackering, plåt, polering och skadebesiktning – alltid med kravet att resultatet ska bli lika bra som om det vore **vår egen bil**.",
+    "Vi är stolta över varje bil som lämnar vår verkstad. Det är inte bara ett jobb – det är ett **hantverk** vi tar på allvar.",
   ],
+  outro: {
+    before: "Vill du veta mer om oss eller behöver du hjälp med din bil? ",
+    linkText: "Kontakta oss",
+    after: " – vi hjälper dig gärna.",
+  },
 } as const;
 
 export const OM_OSS_STATS = [
@@ -267,6 +291,26 @@ export const CONTACT_PAGE = {
       q: "Vad ingår i en lackering?",
       a: "I en lackering ingår demontering och montering, förarbete och slipning, grundmålning och topplack samt kulöranpassning och lackfinish. Vi avslutar alltid med kvalitetskontroll och slutbesiktning så att resultatet håller högsta kvalitet.",
     },
+    {
+      q: "Vad kostar det att laga min bil?",
+      a: "Priset beror på skadans omfattning och vilket arbete som krävs, därför lämnar vi alltid en kostnadsfri offert innan vi påbörjar något. Fyll i formuläret här på webbplatsen eller ring oss, så återkommer vi snabbt med förslag och pris.",
+    },
+    {
+      q: "Hur lång tid tar en reparation?",
+      a: "Det varierar beroende på skadans typ och omfattning – en mindre polering går betydligt snabbare än en större plåt- och lackreparation. När vi har sett över din bil ger vi dig ett tydligt besked om tidsplanen, och vi håller vad vi lovar.",
+    },
+    {
+      q: "Hjälper ni till med försäkringsärenden?",
+      a: "Ja, vi utför skadebesiktning och tar fram det underlag som behövs för ditt försäkringsärende, inklusive fotodokumentation och skaderapport. Vi ger dig också rådgivning om nästa steg så att processen blir så smidig som möjligt.",
+    },
+    {
+      q: "Kan jag komma förbi utan att boka tid?",
+      a: "Du är välkommen att titta förbi under våra öppettider, måndag till fredag 07:00–17:00, men för att vi ska kunna ta hand om din bil på bästa sätt rekommenderar vi att du bokar tid i förväg. Då säkerställer vi att rätt person och utrustning finns på plats för just ditt ärende.",
+    },
+    {
+      q: "Vilka uppgifter behöver ni för att lämna en offert?",
+      a: "Ange gärna bilens registreringsnummer, vilken tjänst det gäller och en kort beskrivning av skadan – bifoga gärna information om var på bilen den sitter. Ju mer vi vet från början, desto snabbare och mer exakt kan vi återkomma med en kostnadsfri offert.",
+    },
   ],
 } as const;
 
@@ -291,7 +335,12 @@ export const FOOTER = {
   tagline:
     "Professionella tjänster inom lackering, plåt och polering. Kvalitet, noggrannhet och service du kan lita på.",
   services: ["Lackering", "Plåt", "Polering", "Skadebesiktning"],
-  company: ["Om oss", "Vår verkstad", "Kvalitet & Miljö", "Karriär"],
+  company: [
+    { label: "Om oss", href: "/om-oss" },
+    { label: "Vår verkstad", href: "/var-verkstad" },
+    { label: "Kvalitet & Miljö", href: "/kvalitet-miljo" },
+    { label: "Karriär", href: "/karriar" },
+  ],
   legal: "© 2024 Avrion Service AB. Alla rättigheter förbehållna.",
   legalLinks: ["Integritetspolicy", "Villkor"],
 } as const;

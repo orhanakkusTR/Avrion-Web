@@ -5,7 +5,8 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, phone, email, regnr, service, message } = body;
 
-    if (!name || !phone || !email || !service) {
+    // Email is optional for the quick callback form; other forms still send it.
+    if (!name || !phone || !service) {
       return NextResponse.json({ error: "Obligatoriska fält saknas." }, { status: 400 });
     }
 
@@ -27,7 +28,7 @@ export async function POST(request: Request) {
           text: [
             `Namn: ${name}`,
             `Telefon: ${phone}`,
-            `E-post: ${email}`,
+            email ? `E-post: ${email}` : null,
             regnr ? `Regnr: ${regnr}` : null,
             `Tjänst: ${service}`,
             message ? `\nMeddelande:\n${message}` : null,
