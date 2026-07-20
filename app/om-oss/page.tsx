@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CheckCircle, Award, Leaf, Calendar, FileText } from "lucide-react";
+import Link from "next/link";
+import { CheckCircle, Award, Leaf, Calendar, Phone } from "lucide-react";
+import { QuoteButton } from "@/components/contact/QuoteButton";
+import { CtaBanner } from "@/components/layout/CtaBanner";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { PageHero } from "@/components/layout/PageHero";
 import {
   OM_OSS_PAGE,
   OM_OSS_STORY,
@@ -11,6 +15,7 @@ import {
   OM_OSS_VERKSTAD,
   OM_OSS_KVALITET,
   SERVICES_CTA,
+  CONTACT_INFO,
 } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -21,32 +26,24 @@ export const metadata: Metadata = {
 
 const kvalitetIcons = [Leaf, Award, CheckCircle];
 
+/** Renders **bold** markers in content strings as <strong> elements. */
+function richText(text: string) {
+  return text.split("**").map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className="font-semibold text-slate-900">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function OmOssPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-navy-900 overflow-hidden pt-24 pb-16">
-        <div
-          className="absolute inset-y-0 right-0 w-full lg:w-1/2 hidden lg:block"
-          aria-hidden="true"
-        >
-          <Image
-            src="/hero-workshop.png"
-            alt=""
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="50vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/40 to-transparent" />
-        </div>
-        <Container className="relative z-10">
-          <h1 className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-4">
-            {OM_OSS_PAGE.h1}
-          </h1>
-          <p className="text-white/80 text-lg max-w-xl">{OM_OSS_PAGE.subtitle}</p>
-        </Container>
-      </section>
+      <PageHero title={OM_OSS_PAGE.h1} subtitle={OM_OSS_PAGE.subtitle} />
 
       {/* Vår berättelse */}
       <Section className="bg-white">
@@ -59,9 +56,35 @@ export default function OmOssPage() {
               <div className="space-y-4">
                 {OM_OSS_STORY.paragraphs.map((p, i) => (
                   <p key={i} className="text-slate-700 text-base leading-relaxed">
-                    {p}
+                    {richText(p)}
                   </p>
                 ))}
+                <p className="text-slate-700 text-base leading-relaxed">
+                  {OM_OSS_STORY.outro.before}
+                  <Link
+                    href="/kontakt"
+                    className="text-brand font-semibold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded"
+                  >
+                    {OM_OSS_STORY.outro.linkText}
+                  </Link>
+                  {OM_OSS_STORY.outro.after}
+                </p>
+              </div>
+
+              {/* CTA trio */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href="/boka" variant="primary">
+                  <Calendar size={16} aria-hidden="true" />
+                  {SERVICES_CTA.ctaPrimary}
+                </Button>
+                <QuoteButton label={SERVICES_CTA.ctaSecondary} variant="secondary" />
+                <Button
+                  href={`tel:${CONTACT_INFO.phone.replace(/\s|–|-/g, "")}`}
+                  variant="secondary"
+                >
+                  <Phone size={16} aria-hidden="true" />
+                  {SERVICES_CTA.ctaCall}
+                </Button>
               </div>
             </div>
             <div className="relative h-72 lg:h-[420px] rounded-2xl overflow-hidden shadow-lg">
@@ -78,7 +101,7 @@ export default function OmOssPage() {
       </Section>
 
       {/* Stats strip */}
-      <section className="bg-navy-950 py-14">
+      <section className="bg-navy-950 py-14 border-b-[6px] border-brand">
         <Container>
           <dl className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {OM_OSS_STATS.map((stat) => (
@@ -164,28 +187,7 @@ export default function OmOssPage() {
       </Section>
 
       {/* CTA */}
-      <section className="bg-navy-950 py-14 mb-16 mx-[75px] rounded-[15px]">
-        <Container>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="font-heading font-bold text-2xl text-white mb-2">
-                {SERVICES_CTA.h3}
-              </h3>
-              <p className="text-white/70">{SERVICES_CTA.text}</p>
-            </div>
-            <div className="flex flex-wrap gap-3 shrink-0">
-              <Button href="/boka" variant="primary">
-                <Calendar size={16} aria-hidden="true" />
-                {SERVICES_CTA.ctaPrimary}
-              </Button>
-              <Button href="/kontakt" variant="secondary-dark">
-                <FileText size={16} aria-hidden="true" />
-                {SERVICES_CTA.ctaSecondary}
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <CtaBanner />
     </>
   );
 }

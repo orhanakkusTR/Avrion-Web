@@ -5,6 +5,57 @@ import { CheckCircle, ArrowRight, Calendar, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { RichText } from "@/components/ui/RichText";
+import { QuoteButton } from "@/components/contact/QuoteButton";
+import { ServiceFaq } from "@/components/services/ServiceFaq";
+import { CtaBanner } from "@/components/layout/CtaBanner";
+import { PageHero } from "@/components/layout/PageHero";
+
+const FAQ_ITEMS = [
+  {
+    q: "När behöver jag en skadebesiktning?",
+    a: "Vid trafikskador, parkeringsskador, köp/sälj av begagnat fordon, efter hagel eller storm, och vid oenighet med försäkringsbolag om skadans omfattning.",
+  },
+  {
+    q: "Godkänner försäkringsbolagen er rapport?",
+    a: "Ja, vår skaderapport är utformad i enlighet med försäkringsbranschens krav och godkänns av de flesta försäkringsbolag i Sverige.",
+  },
+  {
+    q: "Kan ni besikta ett begagnat fordon jag funderar på att köpa?",
+    a: "Absolut, vi erbjuder köparbesiktning som ger dig trygghet om fordonets skick innan köp.",
+  },
+  {
+    q: "Hur lång tid tar en skadebesiktning?",
+    a: "En standardbesiktning tar 30–60 minuter. Rapporten är klar inom 1–2 arbetsdagar.",
+  },
+  {
+    q: "Kostar skadebesiktning något?",
+    a: "Ja, vi tar en fast avgift per besiktning. Kontakta oss för aktuellt pris. Vid reparation hos oss avräknas besiktningsavgiften.",
+  },
+] as const;
+
+const PROCESS_STEPS = [
+  {
+    title: "Visuell genomgång",
+    text: "En erfaren tekniker genomför en strukturerad visuell besiktning av hela fordonet eller angiven skada.",
+  },
+  {
+    title: "Fotodokumentation",
+    text: "Vi fotograferar alla skador systematiskt i hög upplösning med tydliga referenspunkter.",
+  },
+  {
+    title: "Skaderapport",
+    text: "En detaljerad skrivna rapport upprättas med beskrivning av varje skada, berörd del och bedömd åtgärd.",
+  },
+  {
+    title: "Försäkringsunderlag",
+    text: "Rapporten formateras enligt försäkringsbolagens krav och skickas direkt om önskat.",
+  },
+  {
+    title: "Rådgivning",
+    text: "Vi går igenom fynden med dig och rekommenderar lämpliga nästa steg – reparation, ersättningskrav eller fortsatt körning.",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: "Skadebesiktning Bil Mölndal | Avrion Service AB",
@@ -73,33 +124,11 @@ const jsonLd = {
     },
     {
       "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "När behöver jag en skadebesiktning?",
-          acceptedAnswer: { "@type": "Answer", text: "Vid trafikskador, parkeringsskador, köp/sälj av begagnat fordon, efter hagel eller storm, och vid oenighet med försäkringsbolag om skadans omfattning." },
-        },
-        {
-          "@type": "Question",
-          name: "Godkänner försäkringsbolagen er rapport?",
-          acceptedAnswer: { "@type": "Answer", text: "Ja, vår skaderapport är utformad i enlighet med försäkringsbranschens krav och godkänns av de flesta försäkringsbolag i Sverige." },
-        },
-        {
-          "@type": "Question",
-          name: "Kan ni besikta ett begagnat fordon jag funderar på att köpa?",
-          acceptedAnswer: { "@type": "Answer", text: "Absolut, vi erbjuder köparbesiktning som ger dig trygghet om fordonets skick innan köp." },
-        },
-        {
-          "@type": "Question",
-          name: "Hur lång tid tar en skadebesiktning?",
-          acceptedAnswer: { "@type": "Answer", text: "En standardbesiktning tar 30–60 minuter. Rapporten är klar inom 1–2 arbetsdagar." },
-        },
-        {
-          "@type": "Question",
-          name: "Kostar skadebesiktning något?",
-          acceptedAnswer: { "@type": "Answer", text: "Ja, vi tar en fast avgift per besiktning. Kontakta oss för aktuellt pris. Vid reparation hos oss avräknas besiktningsavgiften." },
-        },
-      ],
+      mainEntity: FAQ_ITEMS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
     },
   ],
 };
@@ -112,53 +141,33 @@ export default function SkadebesiktningPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Breadcrumb */}
-      <nav aria-label="Brödsmulor" className="bg-navy-950 border-t border-white/10">
-        <Container>
-          <ol className="flex items-center gap-2 py-3 text-xs text-white/50">
-            <li><Link href="/" className="hover:text-white/80">Hem</Link></li>
-            <li aria-hidden="true">›</li>
-            <li><Link href="/tjanster" className="hover:text-white/80">Tjänster</Link></li>
-            <li aria-hidden="true">›</li>
-            <li className="text-white/80" aria-current="page">Skadebesiktning</li>
-          </ol>
-        </Container>
-      </nav>
-
       {/* Hero */}
-      <section className="bg-navy-900 border-t-2 border-white/20 pt-16 pb-16">
-        <Container>
-          <div className="max-w-2xl">
-            <h1 className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-4 leading-tight">
-              Skadebesiktning & Skadeutredning i Mölndal
-            </h1>
-            <p className="text-white/75 text-lg mb-8 leading-relaxed">
-              Vi besiktar och dokumenterar skador på ditt fordon professionellt – med fotografering, skaderapport och underlag anpassat för försäkringsbolag.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Button href="/boka" variant="primary">
-                <Calendar size={16} aria-hidden="true" />
-                Boka tid
-              </Button>
-              <Button href="/kontakt" variant="secondary-dark">
-                Begär offert
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        title="Skadebesiktning & Skadeutredning i Mölndal"
+        subtitle="Vi besiktar och dokumenterar skador på ditt fordon professionellt – med fotografering, skaderapport och underlag anpassat för försäkringsbolag."
+      >
+        <Button href="/boka" variant="primary">
+          <Calendar size={16} aria-hidden="true" />
+          Boka tid
+        </Button>
+        <Button href="/kontakt" variant="secondary-dark">
+          Begär offert
+        </Button>
+      </PageHero>
 
       {/* Intro + image */}
-      <Section className="bg-white">
+      <Section className="bg-white pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-heading font-bold text-3xl text-slate-900 mb-4">
                 Varför välja oss för skadebesiktning?
               </h2>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                <RichText text="Avrion Service AB erbjuder professionell **skadebesiktning i Mölndal** och Göteborgsregionen sedan över 10 år. Vår opartiska skadeutredning ger dig ett tydligt underlag för försäkringsärenden, begagnatköp eller reparationsplanering. Du får fotodokumentation, en skaderapport och konkret rådgivning om nästa steg." />
+              </p>
               <p className="text-slate-600 leading-relaxed mb-6">
-                Avrion Service AB erbjuder professionell skadebesiktning i Mölndal och Göteborgsregionen sedan över 10 år. Vår opartiska skadeutredning ger dig ett tydligt underlag för försäkringsärenden, begagnatköp eller reparationsplanering.{" "}
-                <Link href="/om-oss" className="underline text-brand hover:text-brand/80">Läs mer om oss</Link>.
+                <RichText text="Våra tekniker är **auktoriserade av Bilskadeförbundet (BSF)**, och vi hjälper dig genom hela försäkringsprocessen – från dokumentation till kontakt med försäkringsbolaget. Vill du komma igång direkt? [Boka en tid|/boka] så tar vi emot din bil måndag till fredag mellan 07:00 och 17:00." />
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -182,6 +191,19 @@ export default function SkadebesiktningPage() {
                   <span className="text-slate-700">Snabb handläggningstid</span>
                 </li>
               </ul>
+
+              {/* CTA trio */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href="/boka" variant="primary">
+                  <Calendar size={16} aria-hidden="true" />
+                  Boka tid
+                </Button>
+                <QuoteButton label="Få offert" variant="secondary" />
+                <Button href="tel:+46738339966" variant="secondary">
+                  <Phone size={16} aria-hidden="true" />
+                  Ring oss
+                </Button>
+              </div>
 
               {/* Customer testimonial */}
               <blockquote className="mt-8 border-l-4 border-brand pl-4">
@@ -215,86 +237,42 @@ export default function SkadebesiktningPage() {
       </Section>
 
       {/* Process */}
-      <Section className="bg-slate-50">
+      <Section className="bg-slate-50 pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
           <h2 className="font-heading font-bold text-3xl text-slate-900 text-center mb-10">
             Vår process – steg för steg
           </h2>
           <ol className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                1
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Visuell genomgång</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">En erfaren tekniker genomför en strukturerad visuell besiktning av hela fordonet eller angiven skada.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                2
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Fotodokumentation</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Vi fotograferar alla skador systematiskt i hög upplösning med tydliga referenspunkter.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                3
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Skaderapport</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">En detaljerad skrivna rapport upprättas med beskrivning av varje skada, berörd del och bedömd åtgärd.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                4
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Försäkringsunderlag</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Rapporten formateras enligt försäkringsbolagens krav och skickas direkt om önskat.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                5
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Rådgivning</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Vi går igenom fynden med dig och rekommenderar lämpliga nästa steg – reparation, ersättningskrav eller fortsatt körning.</p>
-            </li>
+            {PROCESS_STEPS.map((step, i) => (
+              <li
+                key={step.title}
+                className="relative rounded-2xl bg-white border border-slate-200 p-6 shadow-sm hover:border-brand/40 hover:shadow-md transition-all overflow-hidden"
+              >
+                <span
+                  className="absolute top-2 right-4 font-heading font-extrabold text-6xl text-brand/15 leading-none select-none"
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </span>
+                <h3 className="font-heading font-bold text-slate-900 mb-2 relative">
+                  {step.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed relative">{step.text}</p>
+              </li>
+            ))}
           </ol>
         </Container>
       </Section>
 
       {/* FAQ */}
-      <Section className="bg-white">
+      <Section className="bg-white pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading font-bold text-3xl text-slate-900 text-center mb-10">
-              Vanliga frågor om skadebesiktning
-            </h2>
-            <div className="space-y-6">
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">När behöver jag en skadebesiktning?</h3>
-                <p className="text-slate-600 leading-relaxed">Vid trafikskador, parkeringsskador, köp/sälj av begagnat fordon, efter hagel eller storm, och vid oenighet med försäkringsbolag om skadans omfattning.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Godkänner försäkringsbolagen er rapport?</h3>
-                <p className="text-slate-600 leading-relaxed">Ja, vår skaderapport är utformad i enlighet med försäkringsbranschens krav och godkänns av de flesta försäkringsbolag i Sverige.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Kan ni besikta ett begagnat fordon jag funderar på att köpa?</h3>
-                <p className="text-slate-600 leading-relaxed">Absolut, vi erbjuder köparbesiktning som ger dig trygghet om fordonets skick innan köp.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Hur lång tid tar en skadebesiktning?</h3>
-                <p className="text-slate-600 leading-relaxed">En standardbesiktning tar 30–60 minuter. Rapporten är klar inom 1–2 arbetsdagar.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Kostar skadebesiktning något?</h3>
-                <p className="text-slate-600 leading-relaxed">Ja, vi tar en fast avgift per besiktning. Kontakta oss för aktuellt pris. Vid reparation hos oss avräknas besiktningsavgiften.</p>
-              </div>
-            </div>
-          </div>
+          <ServiceFaq title="Vanliga frågor om skadebesiktning" items={FAQ_ITEMS} />
         </Container>
       </Section>
 
       {/* Related services */}
-      <Section className="bg-slate-50">
+      <Section className="bg-slate-50 pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
           <h2 className="font-heading font-bold text-2xl text-slate-900 text-center mb-8">
             Relaterade tjänster
@@ -323,31 +301,10 @@ export default function SkadebesiktningPage() {
       </Section>
 
       {/* CTA */}
-      <section className="bg-navy-950 py-14 mx-[75px] rounded-[15px]">
-        <Container>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div>
-              <h2 className="font-heading font-bold text-2xl text-white mb-2">
-                Behöver du skadebesiktning i Mölndal?
-              </h2>
-              <p className="text-white/70">Kontakta oss idag – vi återkommer snabbt med offert och tid.</p>
-            </div>
-            <div className="flex flex-wrap gap-3 shrink-0">
-              <Button href="/boka" variant="primary">
-                <Calendar size={16} aria-hidden="true" />
-                Boka tid
-              </Button>
-              <a
-                href="tel:+46738339966"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 text-sm font-medium px-5 py-3 rounded-lg transition-colors"
-              >
-                <Phone size={16} aria-hidden="true" />
-                073-833 99 66
-              </a>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <CtaBanner
+        title="Behöver du skadebesiktning i Mölndal?"
+        text="Kontakta oss idag – vi återkommer snabbt med offert och tid."
+      />
     </>
   );
 }

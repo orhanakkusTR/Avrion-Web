@@ -5,6 +5,7 @@ import { InquiryForm } from "@/components/contact/InquiryForm";
 import { ContactInfo } from "@/components/contact/ContactInfo";
 import { MapEmbed } from "@/components/contact/MapEmbed";
 import { Faq } from "@/components/contact/Faq";
+import { CtaBanner } from "@/components/layout/CtaBanner";
 import { CONTACT_PAGE } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -49,6 +50,9 @@ export default function KontaktPage() {
           </div>
         </Container>
       </Section>
+
+      {/* Shared CTA banner */}
+      <CtaBanner />
     </>
   );
 }

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Star } from "lucide-react";
+import { Star, Info } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { CtaBanner } from "@/components/layout/CtaBanner";
 import { HOME_TESTIMONIALS } from "@/lib/content";
+import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = {
   title: "Referenser",
@@ -12,17 +14,21 @@ export const metadata: Metadata = {
 export default function ReferenserPage() {
   return (
     <>
-      <section className="bg-navy-900 border-t-2 border-white/20 pt-24 pb-14">
-        <Container>
-          <h1 className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-3">
-            Referenser
-          </h1>
-          <p className="text-white/70 text-lg">Vad våra kunder säger om oss.</p>
-        </Container>
-      </section>
+      <PageHero title="Referenser" subtitle="Vad våra kunder säger om oss." />
 
       <Section className="bg-white">
         <Container>
+          {/* Page-under-update notice */}
+          <div
+            role="status"
+            className="flex items-start gap-3 bg-highlight/10 border border-highlight/30 rounded-xl px-5 py-4 mb-10 max-w-3xl"
+          >
+            <Info size={18} className="text-highlight mt-0.5 shrink-0" aria-hidden="true" />
+            <p className="text-slate-700 text-sm leading-relaxed">
+              Sidan uppdateras just nu – nya referenser och bilder publiceras löpande.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {HOME_TESTIMONIALS.reviews.map((review) => (
               <article
@@ -65,6 +71,9 @@ export default function ReferenserPage() {
           </div>
         </Container>
       </Section>
+
+      {/* Shared CTA banner */}
+      <CtaBanner />
     </>
   );
 }

@@ -5,6 +5,57 @@ import { CheckCircle, ArrowRight, Calendar, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { RichText } from "@/components/ui/RichText";
+import { QuoteButton } from "@/components/contact/QuoteButton";
+import { ServiceFaq } from "@/components/services/ServiceFaq";
+import { CtaBanner } from "@/components/layout/CtaBanner";
+import { PageHero } from "@/components/layout/PageHero";
+
+const FAQ_ITEMS = [
+  {
+    q: "Hur lång tid tar en lackering?",
+    a: "En lackering tar normalt 1–3 arbetsdagar beroende på skadans omfattning. Vi meddelar alltid beräknad tid vid offert.",
+  },
+  {
+    q: "Matchar ni lacken exakt mot originalet?",
+    a: "Ja, vi använder digitalt spektrofotometer och databaser med alla biltillverkares originalkulörer för exakt matchning.",
+  },
+  {
+    q: "Ger ni garanti på lackeringsarbetet?",
+    a: "Ja, vi lämnar 2 års garanti på material och utfört arbete i enlighet med Konsumentköplagen.",
+  },
+  {
+    q: "Kan jag använda försäkringen för lackering?",
+    a: "Ja, vi hjälper dig med all dokumentation som ditt försäkringsbolag behöver och samarbetar med de flesta bolag.",
+  },
+  {
+    q: "Utför ni lackering av hela bilen?",
+    a: "Vi lackar allt från enstaka detaljer till hela fordon. Kontakta oss för offert utifrån dina behov.",
+  },
+] as const;
+
+const PROCESS_STEPS = [
+  {
+    title: "Skadeanalys & offert",
+    text: "Vi besiktar skadan noggrant och ger dig en transparent skriftlig offert utan dolda avgifter.",
+  },
+  {
+    title: "Demontering & förarbete",
+    text: "Vi demonterar berörda delar och utför slipning, spackling och grundering för ett perfekt underlag.",
+  },
+  {
+    title: "Lackering i lackbox",
+    text: "Lackeringen sker i vår moderna klimatstyrda lackbox med exakt kulöranpassning via digitalt spektrofotometer.",
+  },
+  {
+    title: "Lackfinish & kontroll",
+    text: "Vi polerar och finishar lacken till spegelblankt resultat. Kvalitetskontroll innan montering.",
+  },
+  {
+    title: "Montering & leverans",
+    text: "Alla delar monteras tillbaka och bilen levereras ren och klar för avhämtning.",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: "Lackering Mölndal & Göteborg | Avrion Service AB",
@@ -67,33 +118,11 @@ const jsonLd = {
     },
     {
       "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Hur lång tid tar en lackering?",
-          acceptedAnswer: { "@type": "Answer", text: "En lackering tar normalt 1–3 arbetsdagar beroende på skadans omfattning. Vi meddelar alltid beräknad tid vid offert." },
-        },
-        {
-          "@type": "Question",
-          name: "Matchar ni lacken exakt mot originalet?",
-          acceptedAnswer: { "@type": "Answer", text: "Ja, vi använder digitalt spektrofotometer och databaser med alla biltillverkares originalkulörer för exakt matchning." },
-        },
-        {
-          "@type": "Question",
-          name: "Ger ni garanti på lackeringsarbetet?",
-          acceptedAnswer: { "@type": "Answer", text: "Ja, vi lämnar 2 års garanti på material och utfört arbete i enlighet med Konsumentköplagen." },
-        },
-        {
-          "@type": "Question",
-          name: "Kan jag använda försäkringen för lackering?",
-          acceptedAnswer: { "@type": "Answer", text: "Ja, vi hjälper dig med all dokumentation som ditt försäkringsbolag behöver och samarbetar med de flesta bolag." },
-        },
-        {
-          "@type": "Question",
-          name: "Utför ni lackering av hela bilen?",
-          acceptedAnswer: { "@type": "Answer", text: "Vi lackar allt från enstaka detaljer till hela fordon. Kontakta oss för offert utifrån dina behov." },
-        },
-      ],
+      mainEntity: FAQ_ITEMS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
     },
   ],
 };
@@ -106,51 +135,34 @@ export default function LackeringPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Breadcrumb */}
-      <nav aria-label="Brödsmulor" className="bg-navy-950 border-t border-white/10">
-        <Container>
-          <ol className="flex items-center gap-2 py-3 text-xs text-white/50">
-            <li><Link href="/" className="hover:text-white/80">Hem</Link></li>
-            <li aria-hidden="true">›</li>
-            <li><Link href="/tjanster" className="hover:text-white/80">Tjänster</Link></li>
-            <li aria-hidden="true">›</li>
-            <li className="text-white/80" aria-current="page">Lackering</li>
-          </ol>
-        </Container>
-      </nav>
-
       {/* Hero */}
-      <section className="bg-navy-900 border-t-2 border-white/20 pt-16 pb-16">
-        <Container>
-          <div className="max-w-2xl">
-            <h1 className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-4 leading-tight">
-              Professionell Lackering i Mölndal
-            </h1>
-            <p className="text-white/75 text-lg mb-8 leading-relaxed">
-              Vi erbjuder professionell lackering med högkvalitativa material och moderna lackboxar för ett perfekt resultat – oavsett skadans omfattning.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Button href="/boka" variant="primary">
-                <Calendar size={16} aria-hidden="true" />
-                Boka tid
-              </Button>
-              <Button href="/kontakt" variant="secondary-dark">
-                Begär offert
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        title="Professionell Lackering i Mölndal"
+        subtitle="Vi erbjuder professionell lackering med högkvalitativa material och moderna lackboxar för ett perfekt resultat – oavsett skadans omfattning."
+      >
+        <Button href="/boka" variant="primary">
+          <Calendar size={16} aria-hidden="true" />
+          Boka tid
+        </Button>
+        <Button href="/kontakt" variant="secondary-dark">
+          Begär offert
+        </Button>
+      </PageHero>
 
       {/* Intro + image */}
-      <Section className="bg-white">
+      <Section className="bg-white pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-heading font-bold text-3xl text-slate-900 mb-4">
                 Varför välja oss för lackering?
               </h2>
-              <p className="text-slate-600 leading-relaxed mb-6">Avrion Service AB är din lokala specialist på billackering i Mölndal och Göteborgsregionen. Med modern utrustning, exakt kulörmatching och erfarna lackerare levererar vi ett resultat som är omöjligt att skilja från fabriksoriginal.</p>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                <RichText text="Avrion Service AB är din lokala specialist på **billackering i Mölndal** och Göteborgsregionen. Med moderna lackboxar, digitalt spektrofotometer för exakt kulörmatchning och erfarna lackerare levererar vi ett resultat som är omöjligt att skilja från fabriksoriginal. Varje arbete avslutas med en noggrann kvalitetskontroll innan bilen lämnar verkstaden." />
+              </p>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                <RichText text="Lackering behövs ofta efter en karosskada – därför arbetar vi tätt ihop med våra [plåtarbeten|/tjanster/plat] så att hela reparationen sker under ett och samma tak. Du får alltid en **skriftlig offert** i förväg och **2 års garanti** på arbete och material, så att du kan känna dig trygg hela vägen." />
+              </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle size={18} className="text-success mt-0.5 shrink-0" aria-hidden="true" />
@@ -173,6 +185,19 @@ export default function LackeringPage() {
                   <span className="text-slate-700">Snabb handläggningstid</span>
                 </li>
               </ul>
+
+              {/* CTA trio */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href="/boka" variant="primary">
+                  <Calendar size={16} aria-hidden="true" />
+                  Boka tid
+                </Button>
+                <QuoteButton label="Få offert" variant="secondary" />
+                <Button href="tel:+46738339966" variant="secondary">
+                  <Phone size={16} aria-hidden="true" />
+                  Ring oss
+                </Button>
+              </div>
             </div>
             <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
@@ -188,86 +213,42 @@ export default function LackeringPage() {
       </Section>
 
       {/* Process */}
-      <Section className="bg-slate-50">
+      <Section className="bg-slate-50 pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
           <h2 className="font-heading font-bold text-3xl text-slate-900 text-center mb-10">
             Vår process – steg för steg
           </h2>
           <ol className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                1
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Skadeanalys & offert</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Vi besiktar skadan noggrant och ger dig en transparent skriftlig offert utan dolda avgifter.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                2
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Demontering & förarbete</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Vi demonterar berörda delar och utför slipning, spackling och grundering för ett perfekt underlag.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                3
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Lackering i lackbox</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Lackeringen sker i vår moderna klimatstyrda lackbox med exakt kulöranpassning via digitalt spektrofotometer.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                4
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Lackfinish & kontroll</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Vi polerar och finishar lacken till spegelblankt resultat. Kvalitetskontroll innan montering.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                5
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Montering & leverans</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Alla delar monteras tillbaka och bilen levereras ren och klar för avhämtning.</p>
-            </li>
+            {PROCESS_STEPS.map((step, i) => (
+              <li
+                key={step.title}
+                className="relative rounded-2xl bg-white border border-slate-200 p-6 shadow-sm hover:border-brand/40 hover:shadow-md transition-all overflow-hidden"
+              >
+                <span
+                  className="absolute top-2 right-4 font-heading font-extrabold text-6xl text-brand/15 leading-none select-none"
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </span>
+                <h3 className="font-heading font-bold text-slate-900 mb-2 relative">
+                  {step.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed relative">{step.text}</p>
+              </li>
+            ))}
           </ol>
         </Container>
       </Section>
 
       {/* FAQ */}
-      <Section className="bg-white">
+      <Section className="bg-white pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading font-bold text-3xl text-slate-900 text-center mb-10">
-              Vanliga frågor om lackering
-            </h2>
-            <div className="space-y-6">
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Hur lång tid tar en lackering?</h3>
-                <p className="text-slate-600 leading-relaxed">En lackering tar normalt 1–3 arbetsdagar beroende på skadans omfattning. Vi meddelar alltid beräknad tid vid offert.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Matchar ni lacken exakt mot originalet?</h3>
-                <p className="text-slate-600 leading-relaxed">Ja, vi använder digitalt spektrofotometer och databaser med alla biltillverkares originalkulörer för exakt matchning.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Ger ni garanti på lackeringsarbetet?</h3>
-                <p className="text-slate-600 leading-relaxed">Ja, vi lämnar 2 års garanti på material och utfört arbete i enlighet med Konsumentköplagen.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Kan jag använda försäkringen för lackering?</h3>
-                <p className="text-slate-600 leading-relaxed">Ja, vi hjälper dig med all dokumentation som ditt försäkringsbolag behöver och samarbetar med de flesta bolag.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Utför ni lackering av hela bilen?</h3>
-                <p className="text-slate-600 leading-relaxed">Vi lackar allt från enstaka detaljer till hela fordon. Kontakta oss för offert utifrån dina behov.</p>
-              </div>
-            </div>
-          </div>
+          <ServiceFaq title="Vanliga frågor om lackering" items={FAQ_ITEMS} />
         </Container>
       </Section>
 
       {/* Related services */}
-      <Section className="bg-slate-50">
+      <Section className="bg-slate-50 pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
           <h2 className="font-heading font-bold text-2xl text-slate-900 text-center mb-8">
             Relaterade tjänster
@@ -296,31 +277,10 @@ export default function LackeringPage() {
       </Section>
 
       {/* CTA */}
-      <section className="bg-navy-950 py-14 mx-[75px] rounded-[15px]">
-        <Container>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div>
-              <h2 className="font-heading font-bold text-2xl text-white mb-2">
-                Behöver du lackering i Mölndal?
-              </h2>
-              <p className="text-white/70">Kontakta oss idag – vi återkommer snabbt med offert och tid.</p>
-            </div>
-            <div className="flex flex-wrap gap-3 shrink-0">
-              <Button href="/boka" variant="primary">
-                <Calendar size={16} aria-hidden="true" />
-                Boka tid
-              </Button>
-              <a
-                href="tel:+46738339966"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 text-sm font-medium px-5 py-3 rounded-lg transition-colors"
-              >
-                <Phone size={16} aria-hidden="true" />
-                073-833 99 66
-              </a>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <CtaBanner
+        title="Behöver du lackering i Mölndal?"
+        text="Kontakta oss idag – vi återkommer snabbt med offert och tid."
+      />
     </>
   );
 }

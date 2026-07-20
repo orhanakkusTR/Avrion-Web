@@ -5,6 +5,57 @@ import { CheckCircle, ArrowRight, Calendar, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { RichText } from "@/components/ui/RichText";
+import { QuoteButton } from "@/components/contact/QuoteButton";
+import { ServiceFaq } from "@/components/services/ServiceFaq";
+import { CtaBanner } from "@/components/layout/CtaBanner";
+import { PageHero } from "@/components/layout/PageHero";
+
+const FAQ_ITEMS = [
+  {
+    q: "Vilka repor kan polering ta bort?",
+    a: "Ytliga repor som sitter i klarlacken kan vanligtvis poleras bort helt. Djupare repor som nått grundfärgen kan minskas men behöver lackeringsbehandling för full reparation.",
+  },
+  {
+    q: "Hur länge håller poleringsresultatet?",
+    a: "Med lackförsegling håller resultatet 6–12 månader. Med keramiskt skydd (tillval) upp till 2–3 år.",
+  },
+  {
+    q: "Kan man polera en ny bil?",
+    a: "Ja, ny bilpolering (New Car Protection) rekommenderas för att skydda lacken redan från start och bevara bilens värde.",
+  },
+  {
+    q: "Ingår invändig rengöring?",
+    a: "Grundläggande invändig rengöring ingår. Komplett interiörbehandling finns som tilläggstjänst.",
+  },
+  {
+    q: "Hur lång tid tar en polering?",
+    a: "En hel bil tar vanligtvis 4–8 timmar beroende på storlek och lackens skick. Vi informerar alltid om tid vid bokningstillfället.",
+  },
+] as const;
+
+const PROCESS_STEPS = [
+  {
+    title: "Handtvätt & klering",
+    text: "Bilen tvättas noggrant för hand och lackytan decontamineras med lerplugg och kemisk avfettning.",
+  },
+  {
+    title: "Lackbedömning",
+    text: "Vi mäter lacktjockleken och bedömer grad av oxidering, repor och virvelmärken för rätt poleringsteknik.",
+  },
+  {
+    title: "Maskinpolering steg 1–2",
+    text: "Grövre defekter avlägsnas med korrektionspolering. Steg 2 finpolerar ytan till full spegelblankt finish.",
+  },
+  {
+    title: "Lackförsegling",
+    text: "Vi applicerar lackförsegling eller keramiskt skydd (tillval) för maximal glans och skydd mot smuts och UV.",
+  },
+  {
+    title: "Interiör & finish",
+    text: "Fönsterputs, dörrgångar och interiörrengöring ingår. Bilen lämnas klar och ren.",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: "Bilpolering Mölndal & Göteborg | Avrion Service AB",
@@ -74,33 +125,11 @@ const jsonLd = {
     },
     {
       "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Vilka repor kan polering ta bort?",
-          acceptedAnswer: { "@type": "Answer", text: "Ytliga repor som sitter i klarlacken kan vanligtvis poleras bort helt. Djupare repor som nått grundfärgen kan minskas men behöver lackeringsbehandling för full reparation." },
-        },
-        {
-          "@type": "Question",
-          name: "Hur länge håller poleringsresultatet?",
-          acceptedAnswer: { "@type": "Answer", text: "Med lackförsegling håller resultatet 6–12 månader. Med keramiskt skydd (tillval) upp till 2–3 år." },
-        },
-        {
-          "@type": "Question",
-          name: "Kan man polera en ny bil?",
-          acceptedAnswer: { "@type": "Answer", text: "Ja, ny bilpolering (New Car Protection) rekommenderas för att skydda lacken redan från start och bevara bilens värde." },
-        },
-        {
-          "@type": "Question",
-          name: "Ingår invändig rengöring?",
-          acceptedAnswer: { "@type": "Answer", text: "Grundläggande invändig rengöring ingår. Komplett interiörbehandling finns som tilläggstjänst." },
-        },
-        {
-          "@type": "Question",
-          name: "Hur lång tid tar en polering?",
-          acceptedAnswer: { "@type": "Answer", text: "En hel bil tar vanligtvis 4–8 timmar beroende på storlek och lackens skick. Vi informerar alltid om tid vid bokningstillfället." },
-        },
-      ],
+      mainEntity: FAQ_ITEMS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
     },
   ],
 };
@@ -113,51 +142,34 @@ export default function PoleringPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Breadcrumb */}
-      <nav aria-label="Brödsmulor" className="bg-navy-950 border-t border-white/10">
-        <Container>
-          <ol className="flex items-center gap-2 py-3 text-xs text-white/50">
-            <li><Link href="/" className="hover:text-white/80">Hem</Link></li>
-            <li aria-hidden="true">›</li>
-            <li><Link href="/tjanster" className="hover:text-white/80">Tjänster</Link></li>
-            <li aria-hidden="true">›</li>
-            <li className="text-white/80" aria-current="page">Polering</li>
-          </ol>
-        </Container>
-      </nav>
-
       {/* Hero */}
-      <section className="bg-navy-900 border-t-2 border-white/20 pt-16 pb-16">
-        <Container>
-          <div className="max-w-2xl">
-            <h1 className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-4 leading-tight">
-              Bilpolering & Lackvård i Mölndal
-            </h1>
-            <p className="text-white/75 text-lg mb-8 leading-relaxed">
-              Vi polerar bort repor och ger din bil en djup lyster med invändig och utvändig behandling för en finish i absolut toppklass.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Button href="/boka" variant="primary">
-                <Calendar size={16} aria-hidden="true" />
-                Boka tid
-              </Button>
-              <Button href="/kontakt" variant="secondary-dark">
-                Begär offert
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        title="Bilpolering & Lackvård i Mölndal"
+        subtitle="Vi polerar bort repor och ger din bil en djup lyster med invändig och utvändig behandling för en finish i absolut toppklass."
+      >
+        <Button href="/boka" variant="primary">
+          <Calendar size={16} aria-hidden="true" />
+          Boka tid
+        </Button>
+        <Button href="/kontakt" variant="secondary-dark">
+          Begär offert
+        </Button>
+      </PageHero>
 
       {/* Intro + image */}
-      <Section className="bg-white">
+      <Section className="bg-white pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-heading font-bold text-3xl text-slate-900 mb-4">
                 Varför välja oss för polering?
               </h2>
-              <p className="text-slate-600 leading-relaxed mb-6">Avrion Service AB utför professionell bilpolering i Mölndal med maskinpolering i flera steg. Vi tar effektivt bort oxidering, repor och virvelmärken och avslutar med lackförsegling för långvarigt skydd.</p>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                <RichText text="Avrion Service AB utför **professionell bilpolering** i Mölndal med maskinpolering i flera steg. Vi tar effektivt bort oxidering, repor och virvelmärken och avslutar med lackförsegling för ett långvarigt skydd. Resultatet är en djup lyster som lyfter hela bilens intryck." />
+              </p>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                <RichText text="Varje bil bedöms individuellt – lackens skick avgör hur många steg som behövs, och du får alltid en **skriftlig offert** innan vi börjar. Med **10+ års erfarenhet** vet vi vad som krävs för en finish i toppklass. Osäker på vad din bil behöver? [Kontakta oss|/kontakt] så hjälper vi dig vidare." />
+              </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle size={18} className="text-success mt-0.5 shrink-0" aria-hidden="true" />
@@ -184,13 +196,19 @@ export default function PoleringPage() {
                   <span className="text-slate-700">Meguiar’s Detailing Partner — godkänd produktpartner för professionell polering</span>
                 </li>
               </ul>
-              <p className="mt-6 text-slate-600 text-sm">
-                Läs vad våra kunder säger om oss på vår{" "}
-                <Link href="/referenser" className="text-brand font-medium underline underline-offset-2 hover:text-brand/80">
-                  referenssida
-                </Link>
-                .
-              </p>
+
+              {/* CTA trio */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href="/boka" variant="primary">
+                  <Calendar size={16} aria-hidden="true" />
+                  Boka tid
+                </Button>
+                <QuoteButton label="Få offert" variant="secondary" />
+                <Button href="tel:+46738339966" variant="secondary">
+                  <Phone size={16} aria-hidden="true" />
+                  Ring oss
+                </Button>
+              </div>
             </div>
             <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
@@ -206,86 +224,42 @@ export default function PoleringPage() {
       </Section>
 
       {/* Process */}
-      <Section className="bg-slate-50">
+      <Section className="bg-slate-50 pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
           <h2 className="font-heading font-bold text-3xl text-slate-900 text-center mb-10">
             Vår process – steg för steg
           </h2>
           <ol className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                1
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Handtvätt & klering</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Bilen tvättas noggrant för hand och lackytan decontamineras med lerplugg och kemisk avfettning.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                2
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Lackbedömning</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Vi mäter lacktjockleken och bedömer grad av oxidering, repor och virvelmärken för rätt poleringsteknik.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                3
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Maskinpolering steg 1–2</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Grövre defekter avlägsnas med korrektionspolering. Steg 2 finpolerar ytan till full spegelblankt finish.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                4
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Lackförsegling</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Vi applicerar lackförsegling eller keramiskt skydd (tillval) för maximal glans och skydd mot smuts och UV.</p>
-            </li>
-            <li className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-              <span className="inline-flex w-8 h-8 rounded-full bg-brand text-white text-sm font-bold items-center justify-center mb-3">
-                5
-              </span>
-              <h3 className="font-heading font-bold text-slate-900 mb-2">Interiör & finish</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Fönsterputs, dörrgångar och interiörrengöring ingår. Bilen lämnas klar och ren.</p>
-            </li>
+            {PROCESS_STEPS.map((step, i) => (
+              <li
+                key={step.title}
+                className="relative rounded-2xl bg-white border border-slate-200 p-6 shadow-sm hover:border-brand/40 hover:shadow-md transition-all overflow-hidden"
+              >
+                <span
+                  className="absolute top-2 right-4 font-heading font-extrabold text-6xl text-brand/15 leading-none select-none"
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </span>
+                <h3 className="font-heading font-bold text-slate-900 mb-2 relative">
+                  {step.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed relative">{step.text}</p>
+              </li>
+            ))}
           </ol>
         </Container>
       </Section>
 
       {/* FAQ */}
-      <Section className="bg-white">
+      <Section className="bg-white pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading font-bold text-3xl text-slate-900 text-center mb-10">
-              Vanliga frågor om polering
-            </h2>
-            <div className="space-y-6">
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Vilka repor kan polering ta bort?</h3>
-                <p className="text-slate-600 leading-relaxed">Ytliga repor som sitter i klarlacken kan vanligtvis poleras bort helt. Djupare repor som nått grundfärgen kan minskas men behöver lackeringsbehandling för full reparation.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Hur länge håller poleringsresultatet?</h3>
-                <p className="text-slate-600 leading-relaxed">Med lackförsegling håller resultatet 6–12 månader. Med keramiskt skydd (tillval) upp till 2–3 år.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Kan man polera en ny bil?</h3>
-                <p className="text-slate-600 leading-relaxed">Ja, ny bilpolering (New Car Protection) rekommenderas för att skydda lacken redan från start och bevara bilens värde.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Ingår invändig rengöring?</h3>
-                <p className="text-slate-600 leading-relaxed">Grundläggande invändig rengöring ingår. Komplett interiörbehandling finns som tilläggstjänst.</p>
-              </div>
-              <div className="border-b border-slate-100 pb-6">
-                <h3 className="font-heading font-semibold text-slate-900 mb-2">Hur lång tid tar en polering?</h3>
-                <p className="text-slate-600 leading-relaxed">En hel bil tar vanligtvis 4–8 timmar beroende på storlek och lackens skick. Vi informerar alltid om tid vid bokningstillfället.</p>
-              </div>
-            </div>
-          </div>
+          <ServiceFaq title="Vanliga frågor om polering" items={FAQ_ITEMS} />
         </Container>
       </Section>
 
       {/* Related services */}
-      <Section className="bg-slate-50">
+      <Section className="bg-slate-50 pt-12 pb-12 md:pt-16 md:pb-16">
         <Container>
           <h2 className="font-heading font-bold text-2xl text-slate-900 text-center mb-8">
             Relaterade tjänster
@@ -314,31 +288,10 @@ export default function PoleringPage() {
       </Section>
 
       {/* CTA */}
-      <section className="bg-navy-950 py-14 mx-[75px] rounded-[15px]">
-        <Container>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div>
-              <h2 className="font-heading font-bold text-2xl text-white mb-2">
-                Behöver du polering i Mölndal?
-              </h2>
-              <p className="text-white/70">Kontakta oss idag – vi återkommer snabbt med offert och tid.</p>
-            </div>
-            <div className="flex flex-wrap gap-3 shrink-0">
-              <Button href="/boka" variant="primary">
-                <Calendar size={16} aria-hidden="true" />
-                Boka tid
-              </Button>
-              <a
-                href="tel:+46738339966"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 text-sm font-medium px-5 py-3 rounded-lg transition-colors"
-              >
-                <Phone size={16} aria-hidden="true" />
-                073-833 99 66
-              </a>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <CtaBanner
+        title="Behöver du polering i Mölndal?"
+        text="Kontakta oss idag – vi återkommer snabbt med offert och tid."
+      />
     </>
   );
 }
