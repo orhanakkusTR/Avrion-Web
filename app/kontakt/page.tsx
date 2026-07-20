@@ -6,6 +6,7 @@ import { ContactInfo } from "@/components/contact/ContactInfo";
 import { MapEmbed } from "@/components/contact/MapEmbed";
 import { Faq } from "@/components/contact/Faq";
 import { CtaBanner } from "@/components/layout/CtaBanner";
+import { PageHero } from "@/components/layout/PageHero";
 import { CONTACT_PAGE } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -17,14 +18,7 @@ export default function KontaktPage() {
   return (
     <>
       {/* Page hero */}
-      <section className="bg-navy-900 border-t-2 border-white/20 pt-24 pb-14">
-        <Container>
-          <h1 className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-3">
-            {CONTACT_PAGE.h1}
-          </h1>
-          <p className="text-white/70 text-lg">{CONTACT_PAGE.subtitle}</p>
-        </Container>
-      </section>
+      <PageHero title={CONTACT_PAGE.h1} subtitle={CONTACT_PAGE.subtitle} />
 
       <Section className="bg-white">
         <Container>

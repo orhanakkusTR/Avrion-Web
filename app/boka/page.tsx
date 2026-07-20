@@ -3,6 +3,7 @@ import { ShieldCheck, Clock, CheckCircle, Users } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { InquiryForm } from "@/components/contact/InquiryForm";
+import { PageHero } from "@/components/layout/PageHero";
 import { BOOKING_PAGE } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -15,14 +16,7 @@ const whyIcons = [ShieldCheck, CheckCircle, Clock, Users];
 export default function BokaPage() {
   return (
     <>
-      <section className="bg-navy-900 border-t-2 border-white/20 pt-24 pb-14">
-        <Container>
-          <h1 className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-3">
-            {BOOKING_PAGE.h1}
-          </h1>
-          <p className="text-white/70 text-lg">{BOOKING_PAGE.subtitle}</p>
-        </Container>
-      </section>
+      <PageHero title={BOOKING_PAGE.h1} subtitle={BOOKING_PAGE.subtitle} />
 
       <Section className="bg-white">
         <Container>
