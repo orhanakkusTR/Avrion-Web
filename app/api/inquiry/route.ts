@@ -10,40 +10,36 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Obligatoriska fält saknas." }, { status: 400 });
     }
 
-    // If RESEND_API_KEY is configured, send email via Resend
-    const apiKey = process.env.RESEND_API_KEY;
-    const toEmail = process.env.CONTACT_TO_EMAIL;
+    // Forward to Web3Forms if configured (key -> delivers to the registered inbox)
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
 
-    if (apiKey && toEmail) {
-      const res = await fetch("https://api.resend.com/emails", {
+    if (accessKey) {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          from: "Avrion Service <noreply@avrionservice.se>",
-          to: [toEmail],
+          access_key: accessKey,
           subject: `Ny förfrågan — ${service} (${name})`,
-          text: [
-            `Namn: ${name}`,
-            `Telefon: ${phone}`,
-            email ? `E-post: ${email}` : null,
-            regnr ? `Regnr: ${regnr}` : null,
-            `Tjänst: ${service}`,
-            message ? `\nMeddelande:\n${message}` : null,
-          ]
-            .filter(Boolean)
-            .join("\n"),
+          from_name: "Avrion Service webbplats",
+          // Form fields — shown as-is in the notification email
+          Namn: name,
+          Telefon: phone,
+          ...(email ? { "E-post": email } : {}),
+          ...(regnr ? { Regnr: regnr } : {}),
+          Tjänst: service,
+          ...(message ? { Meddelande: message } : {}),
+          // Lets you hit "Reply" on the notification when the sender left an email
+          ...(email ? { replyto: email } : {}),
         }),
       });
 
-      if (!res.ok) {
-        console.error("Resend API error", await res.text());
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        console.error("Web3Forms error", data);
         return NextResponse.json({ error: "E-post misslyckades." }, { status: 500 });
       }
     } else {
-      // No email configured — log to console in dev
+      // No form backend configured — log to console in dev
       console.log("[inquiry]", { name, phone, email, regnr, service, message });
     }
 
