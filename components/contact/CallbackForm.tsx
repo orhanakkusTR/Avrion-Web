@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -23,6 +24,7 @@ type FormValues = z.infer<typeof schema>;
  */
 export function CallbackForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const router = useRouter();
 
   const {
     register,
@@ -41,8 +43,8 @@ export function CallbackForm() {
         company: data.company,
       });
       if (!ok) throw new Error();
-      setStatus("success");
       reset();
+      router.push("/tack");
     } catch {
       setStatus("error");
     }

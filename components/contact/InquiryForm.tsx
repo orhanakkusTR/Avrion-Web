@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -26,6 +27,7 @@ interface InquiryFormProps {
 
 export function InquiryForm({ submitLabel }: InquiryFormProps) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const router = useRouter();
 
   const {
     register,
@@ -39,8 +41,8 @@ export function InquiryForm({ submitLabel }: InquiryFormProps) {
     try {
       const ok = await submitInquiry(data);
       if (!ok) throw new Error();
-      setStatus("success");
       reset();
+      router.push("/tack");
     } catch {
       setStatus("error");
     }
