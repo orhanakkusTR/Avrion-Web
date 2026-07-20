@@ -1,6 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, Calendar } from "lucide-react";
+
+/* Brand glyphs — lucide dropped social icons, so these are inline SVGs. */
+function InstagramIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
+function FacebookIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+}
 import { Container } from "@/components/ui/Container";
 import { QuoteButton } from "@/components/contact/QuoteButton";
 import {
@@ -39,6 +58,24 @@ export function Footer() {
                 variant="secondary-dark"
                 className="px-4 py-2 text-sm font-medium"
               />
+            </div>
+
+            {/* Social icons — hrefs TODO: real profile URLs from client */}
+            <div className="flex items-center gap-3 mt-5">
+              <a
+                href="#"
+                aria-label="Avrion Service på Instagram"
+                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-brand/70 hover:bg-brand/10 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-brand"
+              >
+                <InstagramIcon size={16} />
+              </a>
+              <a
+                href="#"
+                aria-label="Avrion Service på Facebook"
+                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-brand/70 hover:bg-brand/10 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-brand"
+              >
+                <FacebookIcon size={16} />
+              </a>
             </div>
           </div>
 
