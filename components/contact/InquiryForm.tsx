@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
 import { CONTACT_PAGE } from "@/lib/content";
+import { submitInquiry } from "@/lib/submitInquiry";
 
 const schema = z.object({
   name: z.string().min(2, "Ange ditt namn (minst 2 tecken)."),
@@ -35,12 +36,8 @@ export function InquiryForm({ submitLabel }: InquiryFormProps) {
   const onSubmit = async (data: FormValues) => {
     setStatus("sending");
     try {
-      const res = await fetch("/api/inquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error();
+      const ok = await submitInquiry(data);
+      if (!ok) throw new Error();
       setStatus("success");
       reset();
     } catch {

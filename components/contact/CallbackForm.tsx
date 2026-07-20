@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Loader2, PhoneCall } from "lucide-react";
 import { SERVICES_CALLBACK } from "@/lib/content";
+import { submitInquiry } from "@/lib/submitInquiry";
 
 const schema = z.object({
   firstName: z.string().min(2, "Ange ditt förnamn."),
@@ -32,16 +33,12 @@ export function CallbackForm() {
   const onSubmit = async (data: FormValues) => {
     setStatus("sending");
     try {
-      const res = await fetch("/api/inquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: `${data.firstName} ${data.lastName}`,
-          phone: data.phone,
-          service: SERVICES_CALLBACK.service,
-        }),
+      const ok = await submitInquiry({
+        name: `${data.firstName} ${data.lastName}`,
+        phone: data.phone,
+        service: SERVICES_CALLBACK.service,
       });
-      if (!res.ok) throw new Error();
+      if (!ok) throw new Error();
       setStatus("success");
       reset();
     } catch {
