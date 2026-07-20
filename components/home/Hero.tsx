@@ -68,8 +68,15 @@ export function Hero() {
               const Icon = badgeIcons[i];
               return (
                 <div key={badge.label} className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand/20 border border-brand/40 flex items-center justify-center flex-shrink-0">
-                    <Icon size={20} className="text-brand" aria-hidden="true" />
+                  <div className="relative flex-shrink-0">
+                    {/* Heartbeat ring */}
+                    <span
+                      className="absolute inset-0 rounded-full bg-brand/40 animate-pulse-ring"
+                      aria-hidden="true"
+                    />
+                    <div className="relative w-10 h-10 rounded-full bg-brand/20 border border-brand/40 flex items-center justify-center">
+                      <Icon size={20} className="text-brand" aria-hidden="true" />
+                    </div>
                   </div>
                   <div>
                     <p className="text-white text-sm font-semibold leading-tight">
