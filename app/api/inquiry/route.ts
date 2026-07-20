@@ -159,13 +159,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    // TEMP diagnostic: shape of the credentials actually present in this
-    // environment (never logs the secret itself). Remove after SMTP works.
-    const u = process.env.SMTP_USER ?? "";
-    const p = process.env.SMTP_PASS ?? "";
-    console.error(
-      `[inquiry env] user="${u}" passLen=${p.length} passFirst="${p[0] ?? ""}" passLast="${p[p.length - 1] ?? ""}" passHasSpace=${p.includes(" ")}`
-    );
     console.error("[inquiry route]", err);
     return NextResponse.json({ error: "Serverfel." }, { status: 500 });
   }
