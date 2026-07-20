@@ -52,7 +52,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         </div>
         <span
           aria-hidden="true"
-          className={`absolute -top-8 font-heading font-extrabold text-7xl lg:text-8xl text-brand select-none leading-none ${
+          className={`absolute -top-8 font-heading font-extrabold text-7xl lg:text-8xl text-brand select-none leading-none [text-shadow:0_0_10px_rgba(255,255,255,0.95),0_0_28px_rgba(255,255,255,0.8)] ${
             reverse ? "-right-2 lg:-right-5" : "-left-2 lg:-left-5"
           }`}
         >
