@@ -341,6 +341,10 @@ export const FOOTER = {
     { label: "Kvalitet & Miljö", href: "/kvalitet-miljo" },
     { label: "Karriär", href: "/karriar" },
   ],
-  legal: "© 2024 Avrion Service AB. Alla rättigheter förbehållna.",
-  legalLinks: ["Integritetspolicy", "Villkor"],
+  // Year is rendered dynamically in Footer.tsx
+  legal: "Alla rättigheter förbehållna.",
+  legalLinks: [
+    { label: "Integritetspolicy", href: "/integritetspolicy" },
+    { label: "Villkor", href: "/villkor" },
+  ],
 } as const;

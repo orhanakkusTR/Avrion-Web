@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = {
   title: "Allmänna villkor",
@@ -11,16 +12,7 @@ export default function VillkorPage() {
   return (
     <>
       {/* Page hero */}
-      <section className="bg-navy-900 border-t-2 border-white/20 pt-24 pb-16">
-        <Container>
-          <h1 className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-4">
-            Allmänna villkor
-          </h1>
-          <p className="text-white/70 text-lg max-w-xl">
-            Senast uppdaterad: juni 2025
-          </p>
-        </Container>
-      </section>
+      <PageHero title="Allmänna villkor" subtitle="Senast uppdaterad: juli 2026" />
 
       {/* Content */}
       <section className="bg-white py-16">

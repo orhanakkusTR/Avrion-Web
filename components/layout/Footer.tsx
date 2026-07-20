@@ -120,7 +120,21 @@ export function Footer() {
           </div>
         </div>
 
-
+        {/* Bottom bar: copyright + legal links */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 text-xs text-white/60">
+          <p>
+            © {new Date().getFullYear()} {BRAND_NAME}. {FOOTER.legal}
+          </p>
+          <ul className="flex items-center gap-5">
+            {FOOTER.legalLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="hover:text-white transition-colors">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </Container>
     </footer>
   );
