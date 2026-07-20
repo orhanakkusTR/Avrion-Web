@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Anta } from "next/font/google";
+import { Roboto, Anta, Caveat } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -18,6 +18,13 @@ const anta = Anta({
   display: "swap",
 });
 
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["600"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Avrion Service AB — Lackering, Plåt & Polering i Mölndal",
@@ -32,7 +39,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="sv" className={`${roboto.variable} ${anta.variable}`}>
+    <html lang="sv" className={`${roboto.variable} ${anta.variable} ${caveat.variable}`}>
       <body className="min-h-full flex flex-col antialiased bg-navy-950">
         <Header />
         <main className="flex-1">{children}</main>

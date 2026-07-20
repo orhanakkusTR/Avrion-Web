@@ -124,6 +124,13 @@ export function BeforeAfter() {
 
           {/* Copy + stats */}
           <div>
+            {/* Handwritten accent above the heading */}
+            <span
+              className="inline-block font-script text-brand text-2xl -rotate-3 mb-1"
+              aria-hidden="true"
+            >
+              En av Mölndals mest anlitade
+            </span>
             <h2 className="font-heading text-3xl text-white mb-3">
               {HOME_BEFORE_AFTER.h2}
             </h2>

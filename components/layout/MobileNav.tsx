@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
-import { NAV_LINKS } from "@/lib/content";
+import { Menu, X, Calendar, Phone } from "lucide-react";
+import { QuoteButton } from "@/components/contact/QuoteButton";
+import { NAV_LINKS, CONTACT_INFO } from "@/lib/content";
 
 export function MobileNav({ scrolled = false }: { scrolled?: boolean }) {
   const [open, setOpen] = useState(false);
@@ -56,21 +57,34 @@ export function MobileNav({ scrolled = false }: { scrolled?: boolean }) {
             key={link.href}
             href={link.href}
             onClick={() => setOpen(false)}
-            className="block py-4 text-white/80 hover:text-white text-2xl font-bold border-b border-white/10 focus-visible:ring-2 focus-visible:ring-white rounded"
+            className="block py-4 text-white/80 hover:text-white text-xl font-medium border-b border-white/10 focus-visible:ring-2 focus-visible:ring-white rounded"
           >
             {link.label}
           </Link>
         ))}
       </nav>
 
-      <div className="px-6 py-8">
+      <div className="px-6 py-6 space-y-3">
         <Link
           href="/boka"
           onClick={() => setOpen(false)}
-          className="block w-full text-center bg-brand hover:bg-brand-600 text-white font-semibold py-4 rounded-xl transition-colors text-lg"
+          className="flex items-center justify-center gap-2 w-full text-center bg-brand hover:bg-brand-600 text-white font-semibold py-3.5 rounded-xl transition-colors text-base"
         >
+          <Calendar size={18} aria-hidden="true" />
           Boka tid
         </Link>
+        <QuoteButton
+          label="Få offert"
+          variant="secondary-dark"
+          className="w-full py-3.5 text-base font-semibold rounded-xl"
+        />
+        <a
+          href={`tel:${CONTACT_INFO.phone.replace(/\s|–|-/g, "")}`}
+          className="flex items-center justify-center gap-2 w-full text-center border border-white/40 hover:bg-white/10 text-white font-semibold py-3.5 rounded-xl transition-colors text-base"
+        >
+          <Phone size={18} aria-hidden="true" />
+          Ring oss
+        </a>
       </div>
     </div>
   );
