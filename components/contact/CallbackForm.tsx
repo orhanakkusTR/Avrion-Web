@@ -12,6 +12,7 @@ const schema = z.object({
   firstName: z.string().min(2, "Ange ditt förnamn."),
   lastName: z.string().min(2, "Ange ditt efternamn."),
   phone: z.string().min(7, "Ange ett giltigt telefonnummer."),
+  company: z.string().optional(), // honeypot — hidden from real users
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -37,6 +38,7 @@ export function CallbackForm() {
         name: `${data.firstName} ${data.lastName}`,
         phone: data.phone,
         service: SERVICES_CALLBACK.service,
+        company: data.company,
       });
       if (!ok) throw new Error();
       setStatus("success");
@@ -63,6 +65,15 @@ export function CallbackForm() {
       <p className="text-sm text-slate-600 leading-relaxed mb-4">{SERVICES_CALLBACK.text}</p>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-3">
+        {/* Honeypot — invisible to humans, bots fill it and get silently dropped */}
+        <input
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="absolute -left-[9999px] h-0 w-0 opacity-0"
+          {...register("company")}
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label htmlFor="cb-firstName" className="block text-sm font-medium text-slate-900 mb-1">

@@ -15,6 +15,7 @@ const schema = z.object({
   regnr: z.string().optional(),
   service: z.string().min(1, "Välj en tjänst."),
   message: z.string().optional(),
+  company: z.string().optional(), // honeypot — hidden from real users
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -50,6 +51,15 @@ export function InquiryForm({ submitLabel }: InquiryFormProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-4">
+      {/* Honeypot — invisible to humans, bots fill it and get silently dropped */}
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+        {...register("company")}
+      />
       {/* Name */}
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-slate-900 mb-1">
