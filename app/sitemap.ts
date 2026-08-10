@@ -17,7 +17,6 @@ const ROUTES: Entry[] = [
   { path: "/tjanster/lackering", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tjanster/plat", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tjanster/polering", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/tjanster/skadebesiktning", changeFrequency: "monthly", priority: 0.8 },
   { path: "/boka", changeFrequency: "monthly", priority: 0.7 },
   { path: "/kontakt", changeFrequency: "monthly", priority: 0.7 },
   { path: "/om-oss", changeFrequency: "yearly", priority: 0.6 },

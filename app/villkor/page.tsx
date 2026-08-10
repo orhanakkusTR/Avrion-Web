@@ -32,10 +32,10 @@ export default function VillkorPage() {
                   <strong>Företagsnamn:</strong> Avrion Service AB
                 </li>
                 <li>
-                  <strong>Organisationsnummer:</strong> 556XXX-XXXX
+                  <strong>Organisationsnummer:</strong> 559539-2506
                 </li>
                 <li>
-                  <strong>Adress:</strong> Industrigatan 12, 431 53 Mölndal
+                  <strong>Adress:</strong> Ringögatan 21, 417 17 Göteborg
                 </li>
                 <li>
                   <strong>E-post:</strong>{" "}
@@ -67,7 +67,7 @@ export default function VillkorPage() {
                 2. Tjänster
               </h2>
               <p className="text-slate-600 leading-relaxed">
-                Avrion Service AB erbjuder professionella karosseri- och lackeringstjänster för personbilar och lätta fordon. Våra tjänster omfattar lackering, plåtreparation, polering och skadebesiktning. Vi utför arbete på privatpersoners fordon såväl som på fordonsparker tillhörande företag och organisationer.
+                Avrion Service AB erbjuder professionella karosseri- och lackeringstjänster för personbilar och lätta fordon. Våra tjänster omfattar lackering, plåtreparation och polering. Vi utför arbete på privatpersoners fordon såväl som på fordonsparker tillhörande företag och organisationer.
               </p>
               <p className="mt-3 text-slate-600 leading-relaxed">
                 Samtliga arbeten utförs av certifierade och erfarna tekniker i enlighet med tillverkarens anvisningar och branschens gällande standarder. Vi förbehåller oss rätten att avböja uppdrag som vi bedömer ligga utanför vår kompetens eller kapacitet, eller där fordonsägarens önskemål inte kan uppfyllas med godtagbar kvalitet.

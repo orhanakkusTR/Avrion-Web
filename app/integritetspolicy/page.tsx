@@ -25,7 +25,7 @@ export default function IntegritetspolicyPage() {
                 1. Personuppgiftsansvarig
               </h2>
               <p className="text-slate-600 leading-relaxed">
-                Avrion Service AB (organisationsnummer anges vid begäran) är personuppgiftsansvarig
+                Avrion Service AB (organisationsnummer 559539-2506) är personuppgiftsansvarig
                 för behandlingen av dina personuppgifter. Vi ansvarar för att behandlingen sker i
                 enlighet med Europaparlamentets och rådets förordning (EU) 2016/679 om skydd för
                 fysiska personer med avseende på behandling av personuppgifter (GDPR) samt övrig
@@ -37,9 +37,9 @@ export default function IntegritetspolicyPage() {
               <address className="text-slate-600 leading-relaxed not-italic mt-1">
                 Avrion Service AB
                 <br />
-                Industrigatan 12
+                Ringögatan 21
                 <br />
-                431 53 Mölndal
+                417 17 Göteborg
                 <br />
                 E-post:{" "}
                 <a

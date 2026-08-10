@@ -16,7 +16,6 @@ const imageMap: Record<string, string> = {
   lackering: "/professional_car_spray_painting_lackering_in_a_modern_auto_body_shop._a.png",
   plat: "/plåt.png",
   polering: "/polering.png",
-  skadebesiktning: "/skadebesiktning.png",
 };
 
 /**

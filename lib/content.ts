@@ -10,13 +10,14 @@ export const NAV_LINKS = [
 ] as const;
 
 export const CONTACT_INFO = {
-  address: "Industrigatan 12, 431 53 Mölndal",
+  address: "Ringögatan 21, 417 17 Göteborg",
   phone: "073-833 99 66",
   phoneFooter: "073-833 99 66",
   email: "info@avrionservice.se",
   hours: "Måndag – Fredag 07:00 – 17:00",
   hoursSaturday: "Lördag – Söndag Stängt",
-  mapLabel: "Avrion Service AB, Industrigatan 12, 431 53 Mölndal",
+  mapLabel: "Avrion Service AB, Ringögatan 21, 417 17 Göteborg",
+  orgNr: "559539-2506",
 } as const;
 
 // ── Home ──────────────────────────────────────────────────────────────────────
@@ -119,6 +120,29 @@ export const HOME_TESTIMONIALS = {
   moreLink: "Se fler omdömen på Google",
 } as const;
 
+// ── References /referenser ────────────────────────────────────────────────────
+
+/** B2B clients — bilhandlare and workshops Avrion works for. Client-supplied list. */
+export const REFERENCES_PAGE = {
+  h1: "Referenser",
+  h2: "Våra kunder",
+  clients: [
+    "Eklunds Bil",
+    "Mölndals Bil",
+    "Riddermark Bil",
+    "Carlén",
+    "Moberg",
+    "Kamux",
+    "Eriksson Bil",
+    "Magnusson Bil",
+    "Auto Luxe",
+    "Erlandsson Bil",
+    "Auto Flex Cars",
+    "EE Autocenter",
+    "Grand Auto",
+  ],
+} as const;
+
 // ── Services /tjanster ────────────────────────────────────────────────────────
 
 export const SERVICES_PAGE = {
@@ -164,18 +188,6 @@ export const SERVICES = [
       "Invändig rengöring (tillägg enligt behov)",
     ],
   },
-  {
-    id: "skadebesiktning",
-    title: "Skadebesiktning",
-    text: "Vi besiktar skador och dokumenterar omfattningen inför försäkringsärenden eller reparation.",
-    checklist: [
-      "Visuell skadebesiktning",
-      "Fotodokumentation",
-      "Skaderapport",
-      "Underlag för försäkringsbolag",
-      "Rådgivning och nästa steg",
-    ],
-  },
 ] as const;
 
 export const SERVICES_CTA = {
@@ -212,7 +224,7 @@ export const OM_OSS_STORY = {
   // **…** marks bold emphasis, rendered via richText() on the page.
   paragraphs: [
     "Avrion Service AB grundades med en enkel vision: att erbjuda bilägare i **Göteborgsregionen** ett verkstadsalternativ som kombinerar **hantverksskicklighet** med modern teknik och äkta kundservice.",
-    "Sedan starten har vi vuxit till en av **Mölndals** mest anlitade karosseriverkstäder. Vi arbetar dagligen med lackering, plåt, polering och skadebesiktning – alltid med kravet att resultatet ska bli lika bra som om det vore **vår egen bil**.",
+    "Sedan starten har vi vuxit till en av **Mölndals** mest anlitade karosseriverkstäder. Vi arbetar dagligen med lackering, plåt och polering – alltid med kravet att resultatet ska bli lika bra som om det vore **vår egen bil**.",
     "Vi är stolta över varje bil som lämnar vår verkstad. Det är inte bara ett jobb – det är ett **hantverk** vi tar på allvar.",
   ],
   outro: {
@@ -267,7 +279,7 @@ export const CONTACT_PAGE = {
       label: "Tjänst",
       placeholder: "Välj tjänst",
       required: true,
-      options: ["Lackering", "Plåt", "Polering", "Skadebesiktning"],
+      options: ["Lackering", "Plåt", "Polering"],
     },
     message: {
       label: "Meddelande",
@@ -300,10 +312,6 @@ export const CONTACT_PAGE = {
       a: "Det varierar beroende på skadans typ och omfattning – en mindre polering går betydligt snabbare än en större plåt- och lackreparation. När vi har sett över din bil ger vi dig ett tydligt besked om tidsplanen, och vi håller vad vi lovar.",
     },
     {
-      q: "Hjälper ni till med försäkringsärenden?",
-      a: "Ja, vi utför skadebesiktning och tar fram det underlag som behövs för ditt försäkringsärende, inklusive fotodokumentation och skaderapport. Vi ger dig också rådgivning om nästa steg så att processen blir så smidig som möjligt.",
-    },
-    {
       q: "Kan jag komma förbi utan att boka tid?",
       a: "Du är välkommen att titta förbi under våra öppettider, måndag till fredag 07:00–17:00, men för att vi ska kunna ta hand om din bil på bästa sätt rekommenderar vi att du bokar tid i förväg. Då säkerställer vi att rätt person och utrustning finns på plats för just ditt ärende.",
     },
@@ -334,7 +342,7 @@ export const BOOKING_PAGE = {
 export const FOOTER = {
   tagline:
     "Professionella tjänster inom lackering, plåt och polering. Kvalitet, noggrannhet och service du kan lita på.",
-  services: ["Lackering", "Plåt", "Polering", "Skadebesiktning"],
+  services: ["Lackering", "Plåt", "Polering"],
   company: [
     { label: "Om oss", href: "/om-oss" },
     { label: "Vår verkstad", href: "/var-verkstad" },

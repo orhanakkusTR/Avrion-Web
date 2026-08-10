@@ -88,7 +88,7 @@ Vi polerar bort repor och ger din bil en djup lyster. Invändig och utvändig be
 - Fönsterputs och dörrgångar
 - Invändig rengöring (tillägg enligt behov)
 
-### Skadebesiktning
+### Skadebesiktning — TEMPORARILY REMOVED from the site (may return later)
 Vi besiktar skador och dokumenterar omfattningen inför försäkringsärenden eller reparation.
 **Detta ingår:**
 - Visuell skadebesiktning
@@ -116,17 +116,17 @@ Vi besiktar skador och dokumenterar omfattningen inför försäkringsärenden el
   - **Telefon*** — placeholder: 070 123 45 67
   - **E-post*** — placeholder: namn@exempel.se
   - **Registreringsnummer** — placeholder: ABC 123
-  - **Tjänst*** — select, placeholder: Välj tjänst (options: Lackering, Plåt, Polering, Skadebesiktning)
+  - **Tjänst*** — select, placeholder: Välj tjänst (options: Lackering, Plåt, Polering)
   - **Meddelande** — placeholder: Skriv ditt meddelande här...
 - Button: `Skicka förfrågan`
 - Privacy note: Vi behandlar dina uppgifter enligt vår integritetspolicy.
 
 ### Kontaktinformation
-- **Adress:** Avrion Service AB, Industrigatan 12, 431 53 Mölndal
+- **Adress:** Avrion Service AB, Ringögatan 21, 417 17 Göteborg
 - **Telefon:** 073-833 99 66
 - **E-post:** info@avrionservice.se
 - **Öppettider:** Måndag – Fredag 07:00 – 17:00 · Lördag – Söndag Stängt
-- Map: Avrion Service AB, Industrigatan 12, 431 53 Mölndal
+- Map: Avrion Service AB, Ringögatan 21, 417 17 Göteborg
 
 ### FAQ — "Vanliga frågor"
 - Hur bokar jag en tid? — **[TBD answer]**
@@ -153,9 +153,9 @@ Vi besiktar skador och dokumenterar omfattningen inför försäkringsärenden el
 ## Footer (all pages)
 
 - Tagline: Professionella tjänster inom lackering, plåt och polering. Kvalitet, noggrannhet och service du kan lita på.
-- **Tjänster:** Lackering · Plåt · Polering · Skadebesiktning
+- **Tjänster:** Lackering · Plåt · Polering
 - **Om oss:** Om oss · Vår verkstad · Kvalitet & Miljö · Karriär
-- **Kontakt:** Avrion Service AB · Industrigatan 12 · 431 53 Mölndal · 073-833 99 66 · info@avrionservice.se
+- **Kontakt:** Avrion Service AB · Ringögatan 21 · 417 17 Göteborg · 073-833 99 66 · info@avrionservice.se
 - **Öppettider:** Måndag – Fredag 07:00 – 17:00 · Lördag – Söndag Stängt
 - Button: `Boka tid`
 - Legal: © 2024 Avrion Service AB. Alla rättigheter förbehållna. · Integritetspolicy · Villkor

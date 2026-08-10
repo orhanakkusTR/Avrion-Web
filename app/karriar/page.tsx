@@ -44,7 +44,7 @@ export default function KarriarPage() {
         <Container>
           <div className="max-w-3xl">
             <p className="text-slate-700 leading-relaxed mb-4">
-              <RichText text="Hos Avrion Service i Mölndal arbetar vi varje dag med lackering, plåt, polering och skadebesiktning – alltid med kravet att resultatet ska bli lika bra som om det vore vår egen bil. Vi är ett sammansvetsat team som värdesätter **noggrant hantverk** och hjälper varandra att utvecklas. Här får du arbeta med modern utrustning och kollegor som delar din passion för bilar." />
+              <RichText text="Hos Avrion Service i Mölndal arbetar vi varje dag med lackering, plåt och polering – alltid med kravet att resultatet ska bli lika bra som om det vore vår egen bil. Vi är ett sammansvetsat team som värdesätter **noggrant hantverk** och hjälper varandra att utvecklas. Här får du arbeta med modern utrustning och kollegor som delar din passion för bilar." />
             </p>
             <p className="text-slate-700 leading-relaxed">
               <RichText text="Just nu har vi inga utannonserade tjänster, men vi är alltid intresserade av att komma i kontakt med duktiga hantverkare. Skicka gärna en **spontanansökan** med ditt CV och några rader om dig själv – så hör vi av oss när en roll som matchar din profil öppnas." />

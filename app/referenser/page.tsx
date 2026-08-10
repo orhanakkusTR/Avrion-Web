@@ -1,74 +1,39 @@
 import type { Metadata } from "next";
-import { Star, Info } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { CtaBanner } from "@/components/layout/CtaBanner";
-import { HOME_TESTIMONIALS } from "@/lib/content";
 import { PageHero } from "@/components/layout/PageHero";
+import { REFERENCES_PAGE } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Referenser",
-  description: "Se vad våra kunder säger om Avrion Service AB.",
+  description:
+    "Bilhandlare och verkstäder i Göteborgsregionen som Avrion Service AB arbetar för.",
 };
 
 export default function ReferenserPage() {
   return (
     <>
-      <PageHero title="Referenser" subtitle="Vad våra kunder säger om oss." />
+      {/* TODO: client copy — subtitle for the hero */}
+      <PageHero title={REFERENCES_PAGE.h1} />
 
-      <Section className="bg-white">
+      <Section className="bg-slate-50">
         <Container>
-          {/* Page-under-update notice */}
-          <div
-            role="status"
-            className="flex items-start gap-3 bg-highlight/10 border border-highlight/30 rounded-xl px-5 py-4 mb-10 max-w-3xl"
-          >
-            <Info size={18} className="text-highlight mt-0.5 shrink-0" aria-hidden="true" />
-            <p className="text-slate-700 text-sm leading-relaxed">
-              Sidan uppdateras just nu – nya referenser och bilder publiceras löpande.
-            </p>
-          </div>
+          <h2 className="font-heading font-bold text-3xl text-slate-900 mb-10 lg:mb-14">
+            {REFERENCES_PAGE.h2}
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {HOME_TESTIMONIALS.reviews.map((review) => (
-              <article
-                key={review.author}
-                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm"
-              >
-                <div className="flex gap-0.5 mb-3" aria-label="5 av 5 stjärnor">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={16}
-                      className="fill-star text-star"
-                      aria-hidden="true"
-                    />
-                  ))}
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {REFERENCES_PAGE.clients.map((client) => (
+              <li key={client}>
+                <div className="flex h-full min-h-24 items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-7 text-center shadow-sm transition-[box-shadow,border-color] hover:border-brand/40 hover:shadow-md">
+                  <span className="font-semibold text-lg text-slate-900 leading-snug">
+                    {client}
+                  </span>
                 </div>
-                <blockquote>
-                  <p className="text-slate-700 text-sm leading-relaxed mb-4">
-                    &ldquo;{review.text}&rdquo;
-                  </p>
-                  <footer className="flex items-center justify-between">
-                    <cite className="not-italic font-semibold text-slate-900 text-sm">
-                      {review.author}
-                    </cite>
-                    <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded">
-                      {review.source}
-                    </span>
-                  </footer>
-                </blockquote>
-              </article>
+              </li>
             ))}
-          </div>
-
-          {/* Placeholder for before/after gallery */}
-          <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8 text-center">
-            <p className="text-slate-400 italic text-sm">
-              {/* TODO: client photos — before/after gallery */}
-              Galleri med bilder levereras av kunden.
-            </p>
-          </div>
+          </ul>
         </Container>
       </Section>
 

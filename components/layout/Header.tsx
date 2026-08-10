@@ -85,17 +85,18 @@ export function Header() {
 
             {/* Right: contact trigger + phone + CTA + mobile toggle */}
             <div className="flex items-center gap-3">
-              {/* Mobile: direct call link — no drawer, just dials */}
+              {/* Mobile: direct call link — no drawer, just dials. Filled brand
+                  button so it stays the loudest element in the mobile header. */}
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s|–|-/g, "")}`}
                 aria-label={`Ring oss: ${CONTACT_INFO.phone}`}
-                className={`lg:hidden inline-flex items-center rounded-lg px-3 py-2.5 border transition-all duration-200 focus-visible:ring-2 ${
+                className={`lg:hidden inline-flex items-center rounded-lg px-3 py-2.5 bg-brand text-white hover:bg-brand-600 transition-colors duration-200 focus-visible:ring-2 ${
                   scrolled
-                    ? "text-slate-700 hover:text-slate-900 border-slate-300 hover:border-brand/70 hover:bg-brand/5 focus-visible:ring-brand"
-                    : "text-white/90 hover:text-white border-white/30 hover:border-brand/70 hover:bg-brand/10 focus-visible:ring-white"
+                    ? "focus-visible:ring-brand focus-visible:ring-offset-2"
+                    : "focus-visible:ring-white"
                 }`}
               >
-                <Phone size={16} aria-hidden="true" />
+                <Phone size={18} aria-hidden="true" />
               </a>
 
               {/* Desktop: contact drawer trigger — outlined button, pairs with the CTA */}

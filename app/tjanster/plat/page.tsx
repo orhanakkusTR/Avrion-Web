@@ -91,17 +91,18 @@ const jsonLd = {
       url: "https://avrionservice.se",
       telephone: "+46738339966",
       email: "info@avrionservice.se",
+      taxID: "559539-2506",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Industrigatan 12",
-        addressLocality: "Mölndal",
-        postalCode: "431 53",
+        streetAddress: "Ringögatan 21",
+        addressLocality: "Göteborg",
+        postalCode: "417 17",
         addressCountry: "SE",
       },
       geo: {
         "@type": "GeoCoordinates",
-        latitude: 57.6561,
-        longitude: 12.0149,
+        latitude: 57.7206,
+        longitude: 11.9627,
       },
       areaServed: ["Mölndal", "Göteborg", "Kungsbacka", "Härryda", "Partille"],
       priceRange: "$$",
@@ -270,10 +271,10 @@ export default function PlatPage() {
               Lackering <ArrowRight size={16} aria-hidden="true" />
             </Link>
             <Link
-              href="/tjanster/skadebesiktning"
+              href="/tjanster/polering"
               className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-6 py-4 text-slate-800 font-medium hover:border-brand hover:text-brand transition-colors shadow-sm"
             >
-              Skadebesiktning <ArrowRight size={16} aria-hidden="true" />
+              Polering <ArrowRight size={16} aria-hidden="true" />
             </Link>
             <Link
               href="/tjanster"

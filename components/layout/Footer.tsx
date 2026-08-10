@@ -158,9 +158,13 @@ export function Footer() {
         </div>
 
         {/* Bottom bar: copyright + legal links */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 text-xs text-white/60">
-          <p>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 text-xs text-white/80">
+          <p className="text-center sm:text-left leading-relaxed">
             © {new Date().getFullYear()} {BRAND_NAME}. {FOOTER.legal}
+            {/* Org.nr wraps to its own line on mobile, stays inline from sm up. */}
+            <br className="sm:hidden" />
+            <span className="hidden sm:inline"> · </span>
+            Org.nr {CONTACT_INFO.orgNr}
           </p>
           <ul className="flex items-center gap-5">
             {FOOTER.legalLinks.map((link) => (

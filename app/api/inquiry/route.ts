@@ -89,7 +89,7 @@ function buildHtml(q: Inquiry): string {
           <!-- Footer -->
           <tr>
             <td style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:14px 24px;font-size:11px;color:#94a3b8;">
-              Avrion Service AB · Industrigatan 12, 431 53 Mölndal · avrionservice.se
+              Avrion Service AB · Ringögatan 21, 417 17 Göteborg · avrionservice.se
             </td>
           </tr>
         </table>
