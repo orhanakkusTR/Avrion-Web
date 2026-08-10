@@ -19,7 +19,7 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Om oss – Avrion Service AB",
+  title: "Om oss",
   description:
     "Lär känna Avrion Service AB – vårt team, vår verkstad och våra värderingar. Professionell karosseri och lackering i Göteborg.",
 };

@@ -7,7 +7,7 @@ import { OM_OSS_KVALITET } from "@/lib/content";
 import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = {
-  title: "Kvalitet & Miljö – Avrion Service AB",
+  title: "Kvalitet & Miljö",
   description:
     "Miljögodkända produkter och processer utan kompromisser i slutresultatet – kvalitet och hållbarhet hos Avrion Service i Göteborg.",
 };

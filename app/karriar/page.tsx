@@ -7,7 +7,7 @@ import { CONTACT_INFO } from "@/lib/content";
 import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = {
-  title: "Karriär – Avrion Service AB",
+  title: "Karriär",
   description:
     "Vill du arbeta med bilar där hantverket kommer först? Skicka en spontanansökan till Avrion Service i Göteborg.",
 };

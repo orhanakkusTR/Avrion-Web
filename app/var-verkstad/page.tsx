@@ -6,7 +6,7 @@ import { OM_OSS_VERKSTAD } from "@/lib/content";
 import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = {
-  title: "Vår verkstad – Avrion Service AB",
+  title: "Vår verkstad",
   description:
     "Modern karosseriverkstad i Göteborg med klimatstyrd lackbox, digital kulörmatchning och datoriserat riktningsbord.",
 };

@@ -58,7 +58,7 @@ const PROCESS_STEPS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Lackering Göteborg | Avrion Service AB",
+  title: "Lackering Göteborg",
   description: "Professionell billackering i Göteborg. Vi matchar exakt kulör, moderna lackboxar och 2 års garanti. Boka offert idag – snabb leverans.",
   openGraph: {
     title: "Lackering Göteborg | Avrion Service AB",

@@ -58,7 +58,7 @@ const PROCESS_STEPS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Plåtreparation Göteborg | Avrion Service AB",
+  title: "Plåtreparation Göteborg",
   description: "Expert på plåtreparation och karossarbete i Göteborg. Vi riktar och reparerar alla skador – snabbt, med 2 års garanti. Boka tid idag.",
   openGraph: {
     title: "Plåtreparation Göteborg | Avrion Service AB",

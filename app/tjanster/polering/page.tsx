@@ -58,7 +58,7 @@ const PROCESS_STEPS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Bilpolering Göteborg | Avrion Service AB",
+  title: "Bilpolering Göteborg",
   description: "Professionell bilpolering i Göteborg av certifierade tekniker. Vi tar bort repor och ger djupglans med maskinpolering i flera steg. 2 års garanti. Boka tid idag!",
   openGraph: {
     title: "Bilpolering Göteborg | Avrion Service AB",
