@@ -58,16 +58,16 @@ const PROCESS_STEPS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Lackering Mölndal & Göteborg | Avrion Service AB",
-  description: "Professionell billackering i Mölndal. Vi matchar exakt kulör, moderna lackboxar och 2 års garanti. Boka offert idag – snabb leverans.",
+  title: "Lackering Göteborg | Avrion Service AB",
+  description: "Professionell billackering i Göteborg. Vi matchar exakt kulör, moderna lackboxar och 2 års garanti. Boka offert idag – snabb leverans.",
   openGraph: {
-    title: "Lackering Mölndal & Göteborg | Avrion Service AB",
-    description: "Professionell billackering i Mölndal. Vi matchar exakt kulör, moderna lackboxar och 2 års garanti. Boka offert idag – snabb leverans.",
+    title: "Lackering Göteborg | Avrion Service AB",
+    description: "Professionell billackering i Göteborg. Vi matchar exakt kulör, moderna lackboxar och 2 års garanti. Boka offert idag – snabb leverans.",
     type: "website",
     locale: "sv_SE",
     siteName: "Avrion Service AB",
     url: 'https://avrionservice.se/tjanster/lackering',
-    images: [{ url: '/og/lackering.jpg', width: 1200, height: 630, alt: 'Professionell billackering i Mölndal — Avrion Service AB' }],
+    images: [{ url: '/og/lackering.jpg', width: 1200, height: 630, alt: 'Professionell billackering i Göteborg — Avrion Service AB' }],
   },
   alternates: {
     canonical: "https://avrionservice.se/tjanster/lackering",
@@ -97,7 +97,7 @@ const jsonLd = {
         latitude: 57.7206,
         longitude: 11.9627,
       },
-      areaServed: ["Mölndal", "Göteborg", "Kungsbacka", "Härryda", "Partille"],
+      areaServed: ["Göteborg", "Mölndal", "Kungsbacka", "Härryda", "Partille"],
       priceRange: "$$",
     },
     {
@@ -105,8 +105,8 @@ const jsonLd = {
       name: "Lackering — Avrion Service AB",
       serviceType: "Auto Body Painting",
       provider: { "@id": "https://avrionservice.se/#business" },
-      areaServed: { "@type": "City", name: "Mölndal" },
-      description: "Professionell billackering i Mölndal. Vi matchar exakt kulör, moderna lackboxar och 2 års garanti. Boka offert idag – snabb leverans.",
+      areaServed: { "@type": "City", name: "Göteborg" },
+      description: "Professionell billackering i Göteborg. Vi matchar exakt kulör, moderna lackboxar och 2 års garanti. Boka offert idag – snabb leverans.",
       url: "https://avrionservice.se/tjanster/lackering",
     },
     {
@@ -138,7 +138,7 @@ export default function LackeringPage() {
 
       {/* Hero */}
       <PageHero
-        title="Professionell Lackering i Mölndal"
+        title="Professionell Lackering i Göteborg"
         subtitle="Vi erbjuder professionell lackering med högkvalitativa material och moderna lackboxar för ett perfekt resultat – oavsett skadans omfattning."
       >
         <Button href="/boka" variant="primary">
@@ -159,7 +159,7 @@ export default function LackeringPage() {
                 Varför välja oss för lackering?
               </h2>
               <p className="text-slate-600 leading-relaxed mb-4">
-                <RichText text="Avrion Service AB är din lokala specialist på **billackering i Mölndal** och Göteborgsregionen. Med moderna lackboxar, digitalt spektrofotometer för exakt kulörmatchning och erfarna lackerare levererar vi ett resultat som är omöjligt att skilja från fabriksoriginal. Varje arbete avslutas med en noggrann kvalitetskontroll innan bilen lämnar verkstaden." />
+                <RichText text="Avrion Service AB är din lokala specialist på **billackering i Göteborg**. Med moderna lackboxar, digitalt spektrofotometer för exakt kulörmatchning och erfarna lackerare levererar vi ett resultat som är omöjligt att skilja från fabriksoriginal. Varje arbete avslutas med en noggrann kvalitetskontroll innan bilen lämnar verkstaden." />
               </p>
               <p className="text-slate-600 leading-relaxed mb-6">
                 <RichText text="Lackering behövs ofta efter en karosskada – därför arbetar vi tätt ihop med våra [plåtarbeten|/tjanster/plat] så att hela reparationen sker under ett och samma tak. Du får alltid en **skriftlig offert** i förväg och **2 års garanti** på arbete och material, så att du kan känna dig trygg hela vägen." />
@@ -203,7 +203,7 @@ export default function LackeringPage() {
             <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src="/professional_car_spray_painting_lackering_in_a_modern_auto_body_shop._a.png"
-                alt="Professionell Lackering i Mölndal — Avrion Service AB, Mölndal"
+                alt="Professionell Lackering i Göteborg — Avrion Service AB"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -279,7 +279,7 @@ export default function LackeringPage() {
 
       {/* CTA */}
       <CtaBanner
-        title="Behöver du lackering i Mölndal?"
+        title="Behöver du lackering i Göteborg?"
         text="Kontakta oss idag – vi återkommer snabbt med offert och tid."
       />
     </>

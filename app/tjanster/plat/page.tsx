@@ -58,11 +58,11 @@ const PROCESS_STEPS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Plåtreparation Mölndal & Göteborg | Avrion Service AB",
-  description: "Expert på plåtreparation och karossarbete i Mölndal och Göteborg. Vi riktar och reparerar alla skador – snabbt, med 2 års garanti. Boka tid idag.",
+  title: "Plåtreparation Göteborg | Avrion Service AB",
+  description: "Expert på plåtreparation och karossarbete i Göteborg. Vi riktar och reparerar alla skador – snabbt, med 2 års garanti. Boka tid idag.",
   openGraph: {
-    title: "Plåtreparation Mölndal & Göteborg | Avrion Service AB",
-    description: "Expert på plåtreparation och karossarbete i Mölndal och Göteborg. Vi riktar och reparerar alla skador – snabbt, med 2 års garanti. Boka tid idag.",
+    title: "Plåtreparation Göteborg | Avrion Service AB",
+    description: "Expert på plåtreparation och karossarbete i Göteborg. Vi riktar och reparerar alla skador – snabbt, med 2 års garanti. Boka tid idag.",
     type: "website",
     locale: "sv_SE",
     siteName: "Avrion Service AB",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
         url: "https://avrionservice.se/og/plat.jpg",
         width: 1200,
         height: 630,
-        alt: "Plåtreparation och karossarbete hos Avrion Service AB i Mölndal",
+        alt: "Plåtreparation och karossarbete hos Avrion Service AB i Göteborg",
       },
     ],
   },
@@ -104,7 +104,7 @@ const jsonLd = {
         latitude: 57.7206,
         longitude: 11.9627,
       },
-      areaServed: ["Mölndal", "Göteborg", "Kungsbacka", "Härryda", "Partille"],
+      areaServed: ["Göteborg", "Mölndal", "Kungsbacka", "Härryda", "Partille"],
       priceRange: "$$",
       foundingDate: "2009",
       numberOfEmployees: { "@type": "QuantitativeValue", value: 8 },
@@ -114,8 +114,8 @@ const jsonLd = {
       name: "Plåt — Avrion Service AB",
       serviceType: "Auto Body Repair",
       provider: { "@id": "https://avrionservice.se/#business" },
-      areaServed: { "@type": "City", name: "Mölndal" },
-      description: "Expert på plåtreparation och karossarbete i Mölndal. Vi riktar och reparerar alla skador – snabbt, säkert och med garanti. Boka idag.",
+      areaServed: { "@type": "City", name: "Göteborg" },
+      description: "Expert på plåtreparation och karossarbete i Göteborg. Vi riktar och reparerar alla skador – snabbt, säkert och med garanti. Boka idag.",
       url: "https://avrionservice.se/tjanster/plat",
     },
     {
@@ -147,7 +147,7 @@ export default function PlatPage() {
 
       {/* Hero */}
       <PageHero
-        title="Plåtreparation & Karossarbete i Mölndal"
+        title="Plåtreparation & Karossarbete i Göteborg"
         subtitle="Vi reparerar och riktar alla typer av karosskador med noggrant hantverk och modern utrustning för ett säkert och hållbart resultat."
       >
         <Button href="/boka" variant="primary">
@@ -168,7 +168,7 @@ export default function PlatPage() {
                 Varför välja oss för plåt?
               </h2>
               <p className="text-slate-600 leading-relaxed mb-4">
-                <RichText text="Avrion Service AB är specialister på **plåtreparation och karossarbete** i Mölndal. Oavsett om det gäller en liten buckla, en parkeringsskada eller en större kollisionsskada återställer vi din bil med precision och gedigen erfarenhet. Modern riktningsutrustning och kontrollmått säkerställer ett säkert och hållbart resultat." />
+                <RichText text="Avrion Service AB är specialister på **plåtreparation och karossarbete** i Göteborg. Oavsett om det gäller en liten buckla, en parkeringsskada eller en större kollisionsskada återställer vi din bil med precision och gedigen erfarenhet. Modern riktningsutrustning och kontrollmått säkerställer ett säkert och hållbart resultat." />
               </p>
               <p className="text-slate-600 leading-relaxed mb-6">
                 <RichText text="Efter plåtarbetet tar våra lackerare vid, så att karossreparation och [lackering|/tjanster/lackering] flyter ihop till ett sömlöst slutresultat. Vi hjälper dig gärna med **försäkringsärenden** och du får alltid en **skriftlig offert** innan arbetet påbörjas – transparent och utan överraskningar. **Etablerade 2009.** Våra tekniker är certifierade plåtslagare med lång erfarenhet och medlemmar i **Bilskadeförbundet**." />
@@ -212,7 +212,7 @@ export default function PlatPage() {
             <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src="/plåt.png"
-                alt="Plåtreparation & Karossarbete i Mölndal — Avrion Service AB, Mölndal"
+                alt="Plåtreparation & Karossarbete i Göteborg — Avrion Service AB"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -288,7 +288,7 @@ export default function PlatPage() {
 
       {/* CTA */}
       <CtaBanner
-        title="Behöver du plåt i Mölndal?"
+        title="Behöver du plåt i Göteborg?"
         text="Kontakta oss idag – vi återkommer snabbt med offert och tid."
       />
     </>

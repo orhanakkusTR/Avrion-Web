@@ -125,6 +125,8 @@ export const HOME_TESTIMONIALS = {
 /** B2B clients — bilhandlare and workshops Avrion works for. Client-supplied list. */
 export const REFERENCES_PAGE = {
   h1: "Referenser",
+  subtitle:
+    "Bilhandlare och verkstäder i Göteborgsregionen som väljer Avrion Service för lackering, plåt och polering.",
   h2: "Våra kunder",
   clients: [
     "Eklunds Bil",
@@ -224,7 +226,7 @@ export const OM_OSS_STORY = {
   // **…** marks bold emphasis, rendered via richText() on the page.
   paragraphs: [
     "Avrion Service AB grundades med en enkel vision: att erbjuda bilägare i **Göteborgsregionen** ett verkstadsalternativ som kombinerar **hantverksskicklighet** med modern teknik och äkta kundservice.",
-    "Sedan starten har vi vuxit till en av **Mölndals** mest anlitade karosseriverkstäder. Vi arbetar dagligen med lackering, plåt och polering – alltid med kravet att resultatet ska bli lika bra som om det vore **vår egen bil**.",
+    "Sedan starten har vi vuxit till en av **Göteborgs** mest anlitade karosseriverkstäder. Vi arbetar dagligen med lackering, plåt och polering – alltid med kravet att resultatet ska bli lika bra som om det vore **vår egen bil**.",
     "Vi är stolta över varje bil som lämnar vår verkstad. Det är inte bara ett jobb – det är ett **hantverk** vi tar på allvar.",
   ],
   outro: {
@@ -243,7 +245,7 @@ export const OM_OSS_STATS = [
 
 export const OM_OSS_VERKSTAD = {
   h2: "Vår verkstad",
-  text: "Vår moderna verkstad i Mölndal är utrustad med de senaste verktygen och teknikerna inom karosseri och lackering. Vi investerar löpande i utrustning och utbildning för att kunna erbjuda resultat i absolut toppklass.",
+  text: "Vår moderna verkstad i Göteborg är utrustad med de senaste verktygen och teknikerna inom karosseri och lackering. Vi investerar löpande i utrustning och utbildning för att kunna erbjuda resultat i absolut toppklass.",
   features: [
     "Modern lackbox med klimatkontroll",
     "Digital kulörmatchning för exakt färgåtergivning",

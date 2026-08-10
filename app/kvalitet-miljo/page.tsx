@@ -9,7 +9,7 @@ import { PageHero } from "@/components/layout/PageHero";
 export const metadata: Metadata = {
   title: "Kvalitet & Miljö – Avrion Service AB",
   description:
-    "Miljögodkända produkter och processer utan kompromisser i slutresultatet – kvalitet och hållbarhet hos Avrion Service i Mölndal.",
+    "Miljögodkända produkter och processer utan kompromisser i slutresultatet – kvalitet och hållbarhet hos Avrion Service i Göteborg.",
 };
 
 const badgeIcons = [Leaf, Award, CheckCircle];

@@ -58,11 +58,11 @@ const PROCESS_STEPS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Bilpolering Mölndal & Göteborg | Avrion Service AB",
-  description: "Professionell bilpolering i Mölndal av certifierade tekniker. Vi tar bort repor och ger djupglans med maskinpolering i flera steg. 2 års garanti. Boka tid idag!",
+  title: "Bilpolering Göteborg | Avrion Service AB",
+  description: "Professionell bilpolering i Göteborg av certifierade tekniker. Vi tar bort repor och ger djupglans med maskinpolering i flera steg. 2 års garanti. Boka tid idag!",
   openGraph: {
-    title: "Bilpolering Mölndal & Göteborg | Avrion Service AB",
-    description: "Professionell bilpolering i Mölndal av certifierade tekniker. Vi tar bort repor och ger djupglans med maskinpolering i flera steg. 2 års garanti. Boka tid idag!",
+    title: "Bilpolering Göteborg | Avrion Service AB",
+    description: "Professionell bilpolering i Göteborg av certifierade tekniker. Vi tar bort repor och ger djupglans med maskinpolering i flera steg. 2 års garanti. Boka tid idag!",
     type: "website",
     locale: "sv_SE",
     siteName: "Avrion Service AB",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
         url: "https://avrionservice.se/og-polering.jpg",
         width: 1200,
         height: 630,
-        alt: "Bilpolering Mölndal — Avrion Service AB",
+        alt: "Bilpolering Göteborg — Avrion Service AB",
       },
     ],
   },
@@ -104,7 +104,7 @@ const jsonLd = {
         latitude: 57.7206,
         longitude: 11.9627,
       },
-      areaServed: ["Mölndal", "Göteborg", "Kungsbacka", "Härryda", "Partille"],
+      areaServed: ["Göteborg", "Mölndal", "Kungsbacka", "Härryda", "Partille"],
       priceRange: "$$",
     },
     {
@@ -112,8 +112,8 @@ const jsonLd = {
       name: "Polering — Avrion Service AB",
       serviceType: "Auto Detailing",
       provider: { "@id": "https://avrionservice.se/#business" },
-      areaServed: { "@type": "City", name: "Mölndal" },
-      description: "Professionell bilpolering i Mölndal. Vi tar bort repor, ger djupglans och skyddar lacken. Maskinpolering i flera steg – boka nu.",
+      areaServed: { "@type": "City", name: "Göteborg" },
+      description: "Professionell bilpolering i Göteborg. Vi tar bort repor, ger djupglans och skyddar lacken. Maskinpolering i flera steg – boka nu.",
       url: "https://avrionservice.se/tjanster/polering",
     },
     {
@@ -145,7 +145,7 @@ export default function PoleringPage() {
 
       {/* Hero */}
       <PageHero
-        title="Bilpolering & Lackvård i Mölndal"
+        title="Bilpolering & Lackvård i Göteborg"
         subtitle="Vi polerar bort repor och ger din bil en djup lyster med invändig och utvändig behandling för en finish i absolut toppklass."
       >
         <Button href="/boka" variant="primary">
@@ -166,7 +166,7 @@ export default function PoleringPage() {
                 Varför välja oss för polering?
               </h2>
               <p className="text-slate-600 leading-relaxed mb-4">
-                <RichText text="Avrion Service AB utför **professionell bilpolering** i Mölndal med maskinpolering i flera steg. Vi tar effektivt bort oxidering, repor och virvelmärken och avslutar med lackförsegling för ett långvarigt skydd. Resultatet är en djup lyster som lyfter hela bilens intryck." />
+                <RichText text="Avrion Service AB utför **professionell bilpolering** i Göteborg med maskinpolering i flera steg. Vi tar effektivt bort oxidering, repor och virvelmärken och avslutar med lackförsegling för ett långvarigt skydd. Resultatet är en djup lyster som lyfter hela bilens intryck." />
               </p>
               <p className="text-slate-600 leading-relaxed mb-6">
                 <RichText text="Varje bil bedöms individuellt – lackens skick avgör hur många steg som behövs, och du får alltid en **skriftlig offert** innan vi börjar. Med **10+ års erfarenhet** vet vi vad som krävs för en finish i toppklass. Osäker på vad din bil behöver? [Kontakta oss|/kontakt] så hjälper vi dig vidare." />
@@ -214,7 +214,7 @@ export default function PoleringPage() {
             <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src="/polering.png"
-                alt="Polering & Lackvård i Mölndal — Avrion Service AB, Mölndal"
+                alt="Polering & Lackvård i Göteborg — Avrion Service AB"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -290,7 +290,7 @@ export default function PoleringPage() {
 
       {/* CTA */}
       <CtaBanner
-        title="Behöver du polering i Mölndal?"
+        title="Behöver du polering i Göteborg?"
         text="Kontakta oss idag – vi återkommer snabbt med offert och tid."
       />
     </>

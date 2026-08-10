@@ -14,8 +14,7 @@ export const metadata: Metadata = {
 export default function ReferenserPage() {
   return (
     <>
-      {/* TODO: client copy — subtitle for the hero */}
-      <PageHero title={REFERENCES_PAGE.h1} />
+      <PageHero title={REFERENCES_PAGE.h1} subtitle={REFERENCES_PAGE.subtitle} />
 
       <Section className="bg-slate-50">
         <Container>

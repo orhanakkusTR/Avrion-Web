@@ -34,7 +34,7 @@ const extraReviews2: Review[] = [
   { text: "Lämnade in bilen efter en parkeringsskada – som ny när jag hämtade den. Tack!", author: "Oskar N.", source: "Facebook", time: "3 veckor sedan" },
   { text: "Snabb offert och ärlig prissättning. Inga överraskningar på fakturan.", author: "Emelie R.", source: "Google", time: "1 månad sedan" },
   { text: "Proffsigt utfört arbete från början till slut. Bilen blev helt återställd.", author: "Daniel W.", source: "Google", time: "2 dagar sedan" },
-  { text: "Bästa lackeringsverkstaden i Mölndal. Noggranna och pålitliga.", author: "Sofia A.", source: "Facebook", time: "5 veckor sedan" },
+  { text: "Bästa lackeringsverkstaden i Göteborg. Noggranna och pålitliga.", author: "Sofia A.", source: "Facebook", time: "5 veckor sedan" },
   { text: "Hjälpte mig direkt med försäkringsärendet och allt pappersarbete. Smidigt!", author: "Henrik P.", source: "Google", time: "10 dagar sedan" },
   { text: "Otroligt fint resultat på poleringen, lacken ser djup och blank ut.", author: "Camilla G.", source: "Google", time: "4 månader sedan" },
 ];

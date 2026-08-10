@@ -27,7 +27,7 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: {
-    default: "Avrion Service AB — Lackering, Plåt & Polering i Mölndal",
+    default: "Avrion Service AB — Lackering, Plåt & Polering i Göteborg",
     template: "%s | Avrion Service AB",
   },
   description:

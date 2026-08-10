@@ -16,7 +16,7 @@ export function VerkstadTeaser() {
           <div className="relative h-72 lg:h-[420px] rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="/hero-workshop.png"
-              alt="Avrion Service – vår verkstad i Mölndal"
+              alt="Avrion Service – vår verkstad i Göteborg"
               fill
               className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 50vw"

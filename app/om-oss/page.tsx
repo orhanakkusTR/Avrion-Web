@@ -21,7 +21,7 @@ import {
 export const metadata: Metadata = {
   title: "Om oss – Avrion Service AB",
   description:
-    "Lär känna Avrion Service AB – vårt team, vår verkstad och våra värderingar. Professionell karosseri och lackering i Mölndal.",
+    "Lär känna Avrion Service AB – vårt team, vår verkstad och våra värderingar. Professionell karosseri och lackering i Göteborg.",
 };
 
 const kvalitetIcons = [Leaf, Award, CheckCircle];
@@ -90,7 +90,7 @@ export default function OmOssPage() {
             <div className="relative h-72 lg:h-[420px] rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src="/hero-workshop.png"
-                alt="Avrion Service – vår verkstad i Mölndal"
+                alt="Avrion Service – vår verkstad i Göteborg"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"

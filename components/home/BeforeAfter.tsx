@@ -129,7 +129,7 @@ export function BeforeAfter() {
               className="inline-block font-script text-brand text-2xl -rotate-3 mb-1"
               aria-hidden="true"
             >
-              En av Mölndals mest anlitade
+              En av Göteborgs mest anlitade
             </span>
             <h2 className="font-heading text-3xl text-white mb-3">
               {HOME_BEFORE_AFTER.h2}

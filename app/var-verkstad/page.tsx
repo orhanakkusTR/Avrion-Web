@@ -8,7 +8,7 @@ import { PageHero } from "@/components/layout/PageHero";
 export const metadata: Metadata = {
   title: "Vår verkstad – Avrion Service AB",
   description:
-    "Modern karosseriverkstad i Mölndal med klimatstyrd lackbox, digital kulörmatchning och datoriserat riktningsbord.",
+    "Modern karosseriverkstad i Göteborg med klimatstyrd lackbox, digital kulörmatchning och datoriserat riktningsbord.",
 };
 
 export default function VarVerkstadPage() {
